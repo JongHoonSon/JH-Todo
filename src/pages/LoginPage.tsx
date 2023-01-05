@@ -5,12 +5,14 @@ import { useState } from "react";
 import { useRef } from "react";
 import { vaildateEmail, validatePassword } from "./../utils/validateForm";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
   const submitButton = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (
@@ -36,7 +38,10 @@ export const LoginPage = () => {
         email: emailInputValue,
         password: passwordInputValue,
       })
-      .then((res) => console.log(res.data));
+      .then((res) => {
+        console.log(res.data);
+        navigate("/");
+      });
   };
 
   return (
