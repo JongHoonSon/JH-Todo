@@ -41,6 +41,7 @@ export const LoginPage = () => {
       .then((res) => {
         console.log(res.data);
         navigate("/");
+        window.localStorage.setItem("jwt", res.data.token);
       });
   };
 
