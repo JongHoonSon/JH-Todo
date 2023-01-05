@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { ITodo } from "./TodoList";
 
-export const TodoListItem = () => {
-  return <Container>TodoListItem</Container>;
+export const TodoListItem = (todo: ITodo) => {
+  return <Container>{todo.content}</Container>;
 };
 
 const Container = styled.div`
@@ -12,4 +13,5 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: blue;
+  color: white;
 `;
