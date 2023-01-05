@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(false);
@@ -16,8 +17,13 @@ export const HomePage = () => {
 
   return (
     <Container>
-      {isLoggedIn && (
+      {isLoggedIn ? (
         <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
+      ) : (
+        <>
+          <CustomLink to="/auth/login">로그인</CustomLink>
+          <CustomLink to="/auth/join">회원가입</CustomLink>
+        </>
       )}
     </Container>
   );
@@ -31,6 +37,11 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
+  width: 100px;
+  height: 80px;
+`;
+
+const CustomLink = styled(Link)`
   width: 100px;
   height: 80px;
 `;
