@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
@@ -24,12 +25,24 @@ export const JoinPage = () => {
     submitButton.current?.toggleAttribute("disabled");
   }, [isButtonActive]);
 
+  const handleFormSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(e);
+
+    axios
+      .post("http://localhost:8080/users/create", {
+        email: emailInputValue,
+        password: passwordInputValue,
+      })
+      .then((res) => console.log(res.data));
+  };
+
   return (
     <Container>
       <Helmet>
         <title>회원가입</title>
       </Helmet>
-      <form>
+      <form onSubmit={(e) => handleFormSubmit(e)}>
         <input
           value={emailInputValue}
           onChange={(e) => setEmailInputValue(e.target.value)}
