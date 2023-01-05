@@ -18,7 +18,10 @@ export const HomePage = () => {
   return (
     <Container>
       {isLoggedIn ? (
-        <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
+        <>
+          <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
+          <CustomLink to="/todo">Todo</CustomLink>
+        </>
       ) : (
         <>
           <CustomLink to="/auth/login">로그인</CustomLink>
@@ -38,10 +41,17 @@ const Container = styled.div`
 
 const Button = styled.button`
   width: 100px;
-  height: 80px;
+  height: 50px;
 `;
 
 const CustomLink = styled(Link)`
+  display: block;
   width: 100px;
-  height: 80px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: indigo;
+  border: 1px solid black;
 `;

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import { vaildateEmail, validatePassword } from "./../utils/validateForm";
+import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 
 export const JoinPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");

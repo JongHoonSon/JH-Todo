@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { JoinPage } from "./pages/JoinPage";
-import { LoginPage } from "./pages/LoginPage";
-import { HomePage } from "./pages/HomePage";
+import { JoinPage } from "./pages/auth/JoinPage";
+import { LoginPage } from "./pages/auth/LoginPage";
+import { HomePage } from "./pages/home/HomePage";
+import { TodoPage } from "./pages/todo/TodoPage";
 
 export const Router = () => {
   return (
@@ -10,6 +11,7 @@ export const Router = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/join" element={<JoinPage />} />
         <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/todo" element={<TodoPage />} />
       </Routes>
     </BrowserRouter>
   );

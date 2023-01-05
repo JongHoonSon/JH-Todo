@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import { vaildateEmail, validatePassword } from "./../utils/validateForm";
+import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
