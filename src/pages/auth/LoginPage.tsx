@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { LOGIN } from "../../constants/api";
 
 export const LoginPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
@@ -38,7 +39,7 @@ export const LoginPage = () => {
     console.log(e);
 
     axios
-      .post("http://localhost:8080/users/login", {
+      .post(LOGIN, {
         email: emailInputValue,
         password: passwordInputValue,
       })

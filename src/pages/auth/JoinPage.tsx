@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
+import { JOIN } from "./../../constants/api";
 
 export const JoinPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
@@ -19,7 +20,7 @@ export const JoinPage = () => {
     } else {
       if (isButtonActive) setIsButtonActive(false);
     }
-  }, [emailInputValue, passwordInputValue]);
+  }, [emailInputValue, passwordInputValue, isButtonActive]);
 
   useEffect(() => {
     submitButton.current?.toggleAttribute("disabled");
@@ -30,7 +31,7 @@ export const JoinPage = () => {
     console.log(e);
 
     axios
-      .post("http://localhost:8080/users/create", {
+      .post(JOIN, {
         email: emailInputValue,
         password: passwordInputValue,
       })
