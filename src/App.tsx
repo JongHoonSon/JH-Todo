@@ -14,7 +14,7 @@ function App() {
 const AppLayout = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: tomato;
+  background-color: aliceblue;
 `;
 
 export default App;
