@@ -4,9 +4,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { LOGIN } from "../../constants/apiUrls";
+import { login } from "./../../api/auth/login";
 
 export const LoginPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
@@ -38,16 +37,7 @@ export const LoginPage = () => {
     e.preventDefault();
     console.log(e);
 
-    axios
-      .post(LOGIN, {
-        email: emailInputValue,
-        password: passwordInputValue,
-      })
-      .then((res) => {
-        console.log(res.data);
-        navigate("/");
-        window.localStorage.setItem("jwt", res.data.token);
-      });
+    login({ emailInputValue, passwordInputValue }).then(() => navigate("/"));
   };
 
   return (

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import { JOIN } from "../../constants/apiUrls";
+import { join } from "./../../api/auth/join";
 
 export const JoinPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
@@ -29,13 +30,7 @@ export const JoinPage = () => {
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
     console.log(e);
-
-    axios
-      .post(JOIN, {
-        email: emailInputValue,
-        password: passwordInputValue,
-      })
-      .then((res) => console.log(res.data));
+    join({ emailInputValue, passwordInputValue });
   };
 
   return (
