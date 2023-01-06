@@ -3,7 +3,7 @@ import { TodoList } from "../../components/todo/TodoList";
 import { TodoDetail } from "./../../components/todo/TodoDetail";
 import { TodoForm } from "./../../components/todo/TodoForm";
 import { useQuery } from "@tanstack/react-query";
-import { ITodo } from "./../../types/todos";
+import { ITodo } from "../../types/todo";
 import { getTodos } from "./../../api/todo/getTodos";
 
 export const TodoPage = () => {
