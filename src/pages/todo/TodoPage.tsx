@@ -2,13 +2,18 @@ import styled from "styled-components";
 import { TodoList } from "../../components/todo/TodoList";
 import { TodoDetail } from "./../../components/todo/TodoDetail";
 import { TodoForm } from "./../../components/todo/TodoForm";
+import { useQuery } from "@tanstack/react-query";
+import { ITodo } from "./../../types/todos";
+import { getTodos } from "./../../api/todo/getTodos";
 
 export const TodoPage = () => {
+  const { data, refetch } = useQuery<ITodo[] | undefined>(["todos"], getTodos);
+
   return (
     <Container>
       <Section>
-        <TodoList />
-        <TodoForm />
+        <TodoList todos={data} />
+        <TodoForm refetchTodos={refetch} />
       </Section>
       <Section>
         <TodoDetail />

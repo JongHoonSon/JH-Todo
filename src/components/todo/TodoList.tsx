@@ -1,37 +1,20 @@
 import styled from "styled-components";
-import { GET_TODOS } from "./../../constants/api";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { TodoListItem } from "./TodoListItem";
+import { ITodo } from "./../../types/todos";
 
-export interface ITodo {
-  title: string;
-  content: string;
-  id: string;
-  createdAt: string;
-  updatedAt: string;
+interface TodoListProps {
+  todos: ITodo[] | undefined;
 }
 
-export const TodoList = () => {
-  const [todos, setTodos] = useState<ITodo[]>();
-
-  useEffect(() => {
-    axios
-      .get(GET_TODOS, {
-        headers: {
-          Authorization: window.localStorage.getItem("jwt"),
-        },
-      })
-      .then((res) => {
-        console.log("res.data todos");
-        console.log(res.data);
-        setTodos(res.data.data);
-      });
-  }, []);
-
+export const TodoList = ({ todos }: TodoListProps) => {
   return (
     <Container>
-      {todos ? todos.map((todo) => <TodoListItem {...todo} />) : <></>}
+      {todos ? (
+        todos.map((todo) => (
+          <TodoListItem key={todo.createdAt}>{todo.content}</TodoListItem>
+        ))
+      ) : (
+        <div>empty</div>
+      )}
     </Container>
   );
 };
@@ -41,7 +24,14 @@ const Container = styled.div`
   height: calc(100% - 100px);
   margin: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: orange;
+`;
+
+const TodoListItem = styled.div`
+  width: 100px;
+  height: 50px;
+  background-color: green;
 `;

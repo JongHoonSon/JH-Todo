@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { LOGIN } from "../../constants/api";
+import { LOGIN } from "../../constants/apiUrls";
 
 export const LoginPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");

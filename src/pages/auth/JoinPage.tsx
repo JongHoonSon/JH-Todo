@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
-import { JOIN } from "./../../constants/api";
+import { JOIN } from "../../constants/apiUrls";
 
 export const JoinPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
