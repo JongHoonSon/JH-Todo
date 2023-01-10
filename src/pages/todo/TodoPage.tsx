@@ -7,12 +7,15 @@ import { ITodo } from "../../types/todo";
 import { getTodos } from "./../../api/todo/getTodos";
 
 export const TodoPage = () => {
-  const { data, refetch } = useQuery<ITodo[] | undefined>(["todos"], getTodos);
+  const { data: todos, refetch } = useQuery<ITodo[] | undefined>(
+    ["getTodos"],
+    getTodos
+  );
 
   return (
     <Container>
       <Section>
-        <TodoList todos={data} />
+        <TodoList todos={todos} />
         <TodoForm refetchTodos={refetch} />
       </Section>
       <Section>
