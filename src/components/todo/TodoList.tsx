@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ITodo } from "../../types/todo";
+import { TodoListItem } from "./TodoListItem";
 
 interface TodoListProps {
   todos: ITodo[] | undefined;
@@ -8,13 +9,17 @@ interface TodoListProps {
 export const TodoList = ({ todos }: TodoListProps) => {
   return (
     <Container>
-      {todos ? (
-        todos.map((todo) => (
-          <TodoListItem key={todo.createdAt}>{todo.content}</TodoListItem>
-        ))
-      ) : (
-        <div>empty</div>
-      )}
+      <TodoListHeader>
+        <span>제목</span>
+        <span>내용</span>
+      </TodoListHeader>
+      <TodoListContainer>
+        {todos ? (
+          todos.map((todo) => <TodoListItem key={todo.createdAt} todo={todo} />)
+        ) : (
+          <div>empty</div>
+        )}
+      </TodoListContainer>
     </Container>
   );
 };
@@ -30,8 +35,19 @@ const Container = styled.div`
   background-color: orange;
 `;
 
-const TodoListItem = styled.div`
-  width: 100px;
-  height: 50px;
-  background-color: green;
+const TodoListHeader = styled.div`
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const TodoListContainer = styled.div`
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
