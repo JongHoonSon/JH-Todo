@@ -2,12 +2,20 @@ import styled from "styled-components";
 import { ITodo } from "./../../types/todo";
 
 interface TodoListItemProps {
+  handleSelectedTodoChange: (newSelectedTodo: ITodo) => void;
   todo: ITodo;
 }
 
-export const TodoListItem = ({ todo }: TodoListItemProps) => {
+export const TodoListItem = ({
+  todo,
+  handleSelectedTodoChange,
+}: TodoListItemProps) => {
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        handleSelectedTodoChange(todo);
+      }}
+    >
       <span>{todo.title}</span>
       <span>{todo.content}</span>
     </Container>
@@ -17,8 +25,13 @@ export const TodoListItem = ({ todo }: TodoListItemProps) => {
 const Container = styled.div`
   width: 100%;
   height: 50px;
-  background-color: green;
+  background-color: yellow;
+  border: 1px solid black;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  :hover {
+    opacity: 0.5;
+  }
 `;

@@ -4,9 +4,13 @@ import { TodoListItem } from "./TodoListItem";
 
 interface TodoListProps {
   todos: ITodo[] | undefined;
+  handleSelectedTodoChange: (newSelectedTodo: ITodo) => void;
 }
 
-export const TodoList = ({ todos }: TodoListProps) => {
+export const TodoList = ({
+  todos,
+  handleSelectedTodoChange,
+}: TodoListProps) => {
   return (
     <Container>
       <TodoListHeader>
@@ -15,7 +19,13 @@ export const TodoList = ({ todos }: TodoListProps) => {
       </TodoListHeader>
       <TodoListContainer>
         {todos ? (
-          todos.map((todo) => <TodoListItem key={todo.createdAt} todo={todo} />)
+          todos.map((todo) => (
+            <TodoListItem
+              handleSelectedTodoChange={handleSelectedTodoChange}
+              key={todo.createdAt}
+              todo={todo}
+            />
+          ))
         ) : (
           <div>empty</div>
         )}

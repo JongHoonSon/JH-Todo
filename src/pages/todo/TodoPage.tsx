@@ -5,6 +5,7 @@ import { TodoForm } from "./../../components/todo/TodoForm";
 import { useQuery } from "@tanstack/react-query";
 import { ITodo } from "../../types/todo";
 import { getTodos } from "./../../api/todo/getTodos";
+import { useState } from "react";
 
 export const TodoPage = () => {
   const { data: todos, refetch } = useQuery<ITodo[] | undefined>(
@@ -12,14 +13,25 @@ export const TodoPage = () => {
     getTodos
   );
 
+  const [selectedTodo, setSelectedTodo] = useState<ITodo | undefined>(
+    undefined
+  );
+
+  const handleSelectedTodoChange = (newSelectedTodo: ITodo) => {
+    setSelectedTodo(newSelectedTodo);
+  };
+
   return (
     <Container>
       <Section>
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          handleSelectedTodoChange={handleSelectedTodoChange}
+        />
         <TodoForm refetchTodos={refetch} />
       </Section>
       <Section>
-        <TodoDetail />
+        <TodoDetail selectedTodo={selectedTodo} />
       </Section>
     </Container>
   );
