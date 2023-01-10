@@ -33,7 +33,7 @@ export const LoginPage = () => {
     submitButton.current?.toggleAttribute("disabled");
   }, [isButtonActive]);
 
-  const handleFormSubmit = (e: any) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e);
 

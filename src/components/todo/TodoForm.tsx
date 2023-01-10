@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import axios from "axios";
-import { CREATE_TODO } from "../../constants/apiUrls";
 import { createTodos } from "../../api/todo/createTodo";
 
 interface TodoFormProps {
@@ -12,7 +10,7 @@ export const TodoForm = ({ refetchTodos }: TodoFormProps) => {
   const [todoTitle, setTodoTitle] = useState<string>("");
   const [todoContent, setTodoContent] = useState<string>("");
 
-  const handleFormSubmit = (e: any) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     createTodos({ todoTitle, todoContent }).then(() => {
