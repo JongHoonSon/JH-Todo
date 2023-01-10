@@ -20,24 +20,6 @@ export const TodoForm = ({ refetchTodos }: TodoFormProps) => {
       setTodoTitle("");
       setTodoContent("");
     });
-
-    axios
-      .post(
-        CREATE_TODO,
-        { title: todoTitle, content: todoContent },
-        {
-          headers: {
-            Authorization: window.localStorage.getItem("jwt"),
-          },
-        }
-      )
-      .then((res) => {
-        console.log("res.data create todo");
-        console.log(res.data);
-        refetchTodos();
-        setTodoTitle("");
-        setTodoContent("");
-      });
   };
 
   return (
