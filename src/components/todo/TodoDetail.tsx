@@ -4,6 +4,7 @@ import { getTodoById } from "./../../api/todo/getTodoById";
 import { useQuery } from "@tanstack/react-query";
 import { updateTodo } from "../../api/todo/updateTodo";
 import { useState } from "react";
+import { deleteTodo } from "./../../api/todo/deleteTodo";
 
 interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
@@ -36,9 +37,14 @@ export const TodoDetail = ({ selectedTodo, refetchTodos }: TodoDetailProps) => {
     });
     refetchTodo();
     refetchTodos();
+    setNewTitle("");
+    setNewContent("");
   };
 
-  const handleTodoDeleteButtonClick = () => {};
+  const handleTodoDeleteButtonClick = () => {
+    deleteTodo({ todoId: todo ? todo.id : "" });
+    refetchTodos();
+  };
 
   return (
     <Container>
