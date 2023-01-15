@@ -1,11 +1,11 @@
 import axios from "axios";
 import { GET_TODO_BY_ID } from "../../constants/apiUrls";
 
-interface getTodoByIdPros {
+interface getTodoByIdProps {
   todoId: string;
 }
 
-export const getTodoById = ({ todoId }: getTodoByIdPros) => {
+export const getTodoById = ({ todoId }: getTodoByIdProps) => {
   return axios
     .get(GET_TODO_BY_ID(todoId), {
       headers: {
@@ -13,7 +13,7 @@ export const getTodoById = ({ todoId }: getTodoByIdPros) => {
       },
     })
     .then((res) => {
-      console.log("res.data get todos");
+      console.log("res.data get todo by id");
       console.log(res.data);
       return res.data.data;
     });
