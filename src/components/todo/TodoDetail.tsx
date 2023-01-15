@@ -2,13 +2,16 @@ import styled from "styled-components";
 import { ITodo } from "../../types/todo";
 import { getTodoById } from "./../../api/todo/getTodoById";
 import { useQuery } from "@tanstack/react-query";
+import { updateTodo } from "../../api/todo/updateTodo";
+import { useState } from "react";
 
 interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
+  refetchTodos: () => void;
 }
 
-export const TodoDetail = ({ selectedTodo }: TodoDetailProps) => {
-  const { data: todo, refetch } = useQuery<ITodo | undefined>(
+export const TodoDetail = ({ selectedTodo, refetchTodos }: TodoDetailProps) => {
+  const { data: todo, refetch: refetchTodo } = useQuery<ITodo | undefined>(
     ["getTodoById", `${selectedTodo?.id}`],
     () =>
       getTodoById(
@@ -17,6 +20,26 @@ export const TodoDetail = ({ selectedTodo }: TodoDetailProps) => {
           : { todoId: selectedTodo.id }
       )
   );
+
+  const [newTitle, setNewTitle] = useState<string>(todo ? todo.title : "");
+  const [newContent, setNewContent] = useState<string>(
+    todo ? todo.content : ""
+  );
+
+  const handleTodoEditFormSumbit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    updateTodo({
+      todoId: todo ? todo.id : "",
+      todoTitle: newTitle,
+      todoContent: newContent,
+    });
+    refetchTodo();
+    refetchTodos();
+  };
+
+  const handleTodoDeleteButtonClick = () => {};
+
   return (
     <Container>
       {todo === undefined ? (
@@ -31,15 +54,27 @@ export const TodoDetail = ({ selectedTodo }: TodoDetailProps) => {
             <span>{`수정일 : ${todo.updatedAt}`}</span>
           </TodoDetailContainer>
           <TodoEditFormContainer>
-            <CustomForm>
+            <CustomForm onSubmit={handleTodoEditFormSumbit}>
               <label htmlFor="titleInput">제목</label>
-              <input type="text" id="titleInput" value={todo.title} />
+              <input
+                type="text"
+                id="titleInput"
+                value={newTitle}
+                onChange={(e) => setNewTitle(e.target.value)}
+              />
               <label htmlFor="contentInput">내용</label>
-              <input type="text" id="contentInput" value={todo.content} />
-              <input type="button" value="수정" />
+              <input
+                type="text"
+                id="contentInput"
+                value={newContent}
+                onChange={(e) => setNewContent(e.target.value)}
+              />
+              <input type="submit" value="수정" />
             </CustomForm>
           </TodoEditFormContainer>
-          <TodoDeleteButton>삭제</TodoDeleteButton>
+          <TodoDeleteButton onClick={handleTodoDeleteButtonClick}>
+            삭제
+          </TodoDeleteButton>
         </>
       )}
     </Container>

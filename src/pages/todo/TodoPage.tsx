@@ -8,7 +8,7 @@ import { getTodos } from "./../../api/todo/getTodos";
 import { useState } from "react";
 
 export const TodoPage = () => {
-  const { data: todos, refetch } = useQuery<ITodo[] | undefined>(
+  const { data: todos, refetch: refetchTodos } = useQuery<ITodo[] | undefined>(
     ["getTodos"],
     getTodos
   );
@@ -28,10 +28,10 @@ export const TodoPage = () => {
           todos={todos}
           handleSelectedTodoChange={handleSelectedTodoChange}
         />
-        <TodoForm refetchTodos={refetch} />
+        <TodoForm refetchTodos={refetchTodos} />
       </Section>
       <Section>
-        <TodoDetail selectedTodo={selectedTodo} />
+        <TodoDetail selectedTodo={selectedTodo} refetchTodos={refetchTodos} />
       </Section>
     </Container>
   );
