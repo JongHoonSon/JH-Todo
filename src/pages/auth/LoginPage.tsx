@@ -40,7 +40,6 @@ export const LoginPage = ({ isUserLoggedIn }: LoginPageProps) => {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e);
-
     login({ emailInputValue, passwordInputValue }).then(() => navigate("/"));
   };
 
