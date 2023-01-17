@@ -5,10 +5,20 @@ import { TodoForm } from "./../../components/todo/TodoForm";
 import { useQuery } from "@tanstack/react-query";
 import { ITodo } from "../../types/todo";
 import { getTodos } from "./../../api/todo/getTodos";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HeaderContainer } from "../../containers/common/HeaderContainer";
+import { useNavigate } from "react-router-dom";
 
-export const TodoPage = () => {
+interface TodoPageProps {
+  isUserLoggedIn: boolean;
+}
+
+export const TodoPage = ({ isUserLoggedIn }: TodoPageProps) => {
+  const navgiate = useNavigate();
+  useEffect(() => {
+    if (!isUserLoggedIn) navgiate("/");
+  }, []);
+
   const { data: todos, refetch: refetchTodos } = useQuery<ITodo[] | undefined>(
     ["getTodos"],
     getTodos
