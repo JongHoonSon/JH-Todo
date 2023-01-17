@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ITodo } from "../../types/todo";
 import { getTodos } from "./../../api/todo/getTodos";
 import { useState } from "react";
+import { HeaderContainer } from "../../containers/common/HeaderContainer";
 
 export const TodoPage = () => {
   const { data: todos, refetch: refetchTodos } = useQuery<ITodo[] | undefined>(
@@ -22,18 +23,21 @@ export const TodoPage = () => {
   };
 
   return (
-    <Container>
-      <Section>
-        <TodoList
-          todos={todos}
-          handleSelectedTodoChange={handleSelectedTodoChange}
-        />
-        <TodoForm refetchTodos={refetchTodos} />
-      </Section>
-      <Section>
-        <TodoDetail selectedTodo={selectedTodo} refetchTodos={refetchTodos} />
-      </Section>
-    </Container>
+    <>
+      <HeaderContainer />
+      <Container>
+        <Section>
+          <TodoList
+            todos={todos}
+            handleSelectedTodoChange={handleSelectedTodoChange}
+          />
+          <TodoForm refetchTodos={refetchTodos} />
+        </Section>
+        <Section>
+          <TodoDetail selectedTodo={selectedTodo} refetchTodos={refetchTodos} />
+        </Section>
+      </Container>
+    </>
   );
 };
 
