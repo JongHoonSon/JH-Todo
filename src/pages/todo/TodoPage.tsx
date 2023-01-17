@@ -11,9 +11,15 @@ import { useNavigate } from "react-router-dom";
 
 interface TodoPageProps {
   isUserLoggedIn: boolean;
+  selectedTodo: ITodo | undefined;
+  handleSelectedTodoChange: (newTodo: ITodo) => void;
 }
 
-export const TodoPage = ({ isUserLoggedIn }: TodoPageProps) => {
+export const TodoPage = ({
+  isUserLoggedIn,
+  selectedTodo,
+  handleSelectedTodoChange,
+}: TodoPageProps) => {
   const navgiate = useNavigate();
   useEffect(() => {
     if (!isUserLoggedIn) navgiate("/");
@@ -23,14 +29,6 @@ export const TodoPage = ({ isUserLoggedIn }: TodoPageProps) => {
     ["getTodos"],
     getTodos
   );
-
-  const [selectedTodo, setSelectedTodo] = useState<ITodo | undefined>(
-    undefined
-  );
-
-  const handleSelectedTodoChange = (newSelectedTodo: ITodo) => {
-    setSelectedTodo(newSelectedTodo);
-  };
 
   return (
     <>
