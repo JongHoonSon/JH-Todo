@@ -1,32 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { TodoPage } from "./../todo/TodoPage";
+import { LoginPage } from "./../auth/LoginPage";
 
 interface HomePageProps {
   isUserLoggedIn: boolean;
-  logout: () => void;
 }
 
-export const HomePage = ({ isUserLoggedIn, logout }: HomePageProps) => {
-  const handleLogoutButtonClick = () => {
-    window.localStorage.removeItem("jwt");
-    logout();
-  };
-
-  return (
-    <Container>
-      {isUserLoggedIn ? (
-        <>
-          <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
-          <CustomLink to="/todo">Todo</CustomLink>
-        </>
-      ) : (
-        <>
-          <CustomLink to="/auth/login">로그인</CustomLink>
-          <CustomLink to="/auth/join">회원가입</CustomLink>
-        </>
-      )}
-    </Container>
-  );
+export const HomePage = ({ isUserLoggedIn }: HomePageProps) => {
+  return isUserLoggedIn ? <TodoPage /> : <LoginPage />;
 };
 
 const Container = styled.div`
