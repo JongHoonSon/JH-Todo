@@ -4,7 +4,7 @@ import { useAuthentication } from "./../../hook/useAuthentication";
 
 export const HomePageContainer = () => {
   useAuthentication();
-  const isUserLoggedIn = useAppSelector((state) => state.auth.isUserLoggedIn);
+  const { isUserLoggedIn } = useAppSelector((state) => state.auth);
 
   return <HomePage isUserLoggedIn={isUserLoggedIn} />;
 };
