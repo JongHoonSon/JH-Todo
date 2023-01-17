@@ -1,16 +1,16 @@
-import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
-import { JOIN } from "../../constants/apiUrls";
 import { join } from "./../../api/auth/join";
+import { Link, useNavigate } from "react-router-dom";
 
 export const JoinPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
   const submitButton = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (
@@ -30,7 +30,7 @@ export const JoinPage = () => {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e);
-    join({ emailInputValue, passwordInputValue });
+    join({ emailInputValue, passwordInputValue }).then(() => navigate("/"));
   };
 
   return (
@@ -49,6 +49,7 @@ export const JoinPage = () => {
         />
         <input type="submit" ref={submitButton} disabled />
       </form>
+      <Link to="/auth/login">로그인</Link>
     </Container>
   );
 };

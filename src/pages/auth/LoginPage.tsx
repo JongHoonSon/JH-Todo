@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "./../../api/auth/login";
 
 export const LoginPage = () => {
@@ -52,6 +52,7 @@ export const LoginPage = () => {
         />
         <input type="submit" ref={submitButton} disabled />
       </form>
+      <Link to="/auth/join">회원가입</Link>
     </Container>
   );
 };
