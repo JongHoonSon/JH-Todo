@@ -15,10 +15,6 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (window.localStorage.getItem("jwt")) navigate("/");
-  }, []);
-
-  useEffect(() => {
     if (
       vaildateEmail(emailInputValue) &&
       validatePassword(passwordInputValue)

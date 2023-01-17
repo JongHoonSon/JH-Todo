@@ -1,14 +1,19 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { TodoPage } from "./../todo/TodoPage";
-import { LoginPage } from "./../auth/LoginPage";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 interface HomePageProps {
   isUserLoggedIn: boolean;
 }
 
 export const HomePage = ({ isUserLoggedIn }: HomePageProps) => {
-  return isUserLoggedIn ? <TodoPage /> : <LoginPage />;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    isUserLoggedIn ? navigate("/todo") : navigate("/auth/login");
+  }, []);
+
+  return <></>;
 };
 
 const Container = styled.div`
