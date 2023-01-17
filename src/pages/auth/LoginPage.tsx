@@ -7,12 +7,20 @@ import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "./../../api/auth/login";
 
-export const LoginPage = () => {
+interface LoginPageProps {
+  isUserLoggedIn: boolean;
+}
+
+export const LoginPage = ({ isUserLoggedIn }: LoginPageProps) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isUserLoggedIn) navigate("/");
+  });
+
   const [emailInputValue, setEmailInputValue] = useState<string>("");
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
   const submitButton = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (

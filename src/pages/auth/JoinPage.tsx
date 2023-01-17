@@ -5,12 +5,20 @@ import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import { join } from "./../../api/auth/join";
 import { Link, useNavigate } from "react-router-dom";
 
-export const JoinPage = () => {
+interface JoinPageProps {
+  isUserLoggedIn: boolean;
+}
+
+export const JoinPage = ({ isUserLoggedIn }: JoinPageProps) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isUserLoggedIn) navigate("/");
+  });
+
   const [emailInputValue, setEmailInputValue] = useState<string>("");
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
   const submitButton = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (
