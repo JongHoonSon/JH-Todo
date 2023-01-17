@@ -1,19 +1,15 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useAuthentication } from "./../../hook/useAuthentication";
-import { useAppDispatch, useAppSelector } from "./../../store/store";
-import { authSlice } from "./../../store/authSlice";
 
-export const HomePage = () => {
-  useAuthentication();
-  const isUserLoggedIn = useAppSelector((state) => state.auth.isUserLoggedIn);
+interface HomePageProps {
+  isUserLoggedIn: boolean;
+  logout: () => void;
+}
 
-  const dispatch = useAppDispatch();
-  const { setIsUserLoggedIn } = authSlice.actions;
-
+export const HomePage = ({ isUserLoggedIn, logout }: HomePageProps) => {
   const handleLogoutButtonClick = () => {
     window.localStorage.removeItem("jwt");
-    dispatch(setIsUserLoggedIn(false));
+    logout();
   };
 
   return (
