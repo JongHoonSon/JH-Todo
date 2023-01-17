@@ -1,23 +1,24 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuthentication } from "./../../hook/useAuthentication";
+import { useAppDispatch, useAppSelector } from "./../../store/store";
+import { authSlice } from "./../../store/authSlice";
 
 export const HomePage = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(false);
+  useAuthentication();
+  const isUserLoggedIn = useAppSelector((state) => state.auth.isUserLoggedIn);
 
-  useEffect(() => {
-    if (window.localStorage.getItem("jwt")) setIsLoggedIn(true);
-  }, []);
+  const dispatch = useAppDispatch();
+  const { setIsUserLoggedIn } = authSlice.actions;
 
   const handleLogoutButtonClick = () => {
     window.localStorage.removeItem("jwt");
-    setIsLoggedIn(false);
+    dispatch(setIsUserLoggedIn(false));
   };
 
   return (
     <Container>
-      {isLoggedIn ? (
+      {isUserLoggedIn ? (
         <>
           <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
           <CustomLink to="/todo">Todo</CustomLink>
