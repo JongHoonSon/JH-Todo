@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useCreateTodoMutation } from "../../hooks/api/todo/useCreateTodoMutation";
 
-export const TodoForm = () => {
+export const TodoForm = (): React.ReactElement => {
   const [todoTitle, setTodoTitle] = useState<string>("");
   const [todoContent, setTodoContent] = useState<string>("");
   const createTodoMutation = useCreateTodoMutation();

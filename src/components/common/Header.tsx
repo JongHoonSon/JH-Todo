@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export const Header = () => {
+export const Header = (): React.ReactElement => {
   const navigate = useNavigate();
   const handleLogoutButtonClick = () => {
     window.localStorage.removeItem("jwt");

@@ -4,7 +4,7 @@ import { TodoDetailContainer } from "./../../containers/todo/TodoDetailContainer
 import { TodoList } from "../../components/todo/TodoList";
 import { Header } from "../../components/common/Header";
 
-export const TodoPage = () => {
+export const TodoPage = (): React.ReactElement => {
   return (
     <>
       <Header />

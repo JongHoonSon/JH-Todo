@@ -9,7 +9,9 @@ interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
 }
 
-export const TodoDetail = ({ selectedTodo }: TodoDetailProps) => {
+export const TodoDetail = ({
+  selectedTodo,
+}: TodoDetailProps): React.ReactElement => {
   const { data: todo } = useGetTodoByIdQuery(selectedTodo);
 
   const [newTitle, setNewTitle] = useState<string>(todo ? todo.title : "");

@@ -9,7 +9,7 @@ interface TodoListItemProps {
 export const TodoListItem = ({
   todo,
   handleSelectedTodoChange,
-}: TodoListItemProps) => {
+}: TodoListItemProps): React.ReactElement => {
   return (
     <Container
       onClick={() => {

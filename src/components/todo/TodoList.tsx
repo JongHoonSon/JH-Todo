@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useGetTodosQuery } from "../../hooks/api/todo/useGetTodosQuery";
 import { TodoListItemContainer } from "../../containers/todo/TodoListItemContainer";
 
-export const TodoList = () => {
+export const TodoList = (): React.ReactElement => {
   const { data: todos } = useGetTodosQuery();
 
   return (

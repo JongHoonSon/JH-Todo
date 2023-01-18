@@ -5,7 +5,7 @@ import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import { Link } from "react-router-dom";
 import { useJoinMutation } from "../../hooks/api/auth/useJoinMutation";
 
-export const JoinPage = () => {
+export const JoinPage = (): React.ReactElement => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);

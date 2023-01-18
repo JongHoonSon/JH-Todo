@@ -7,7 +7,7 @@ import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import { Link } from "react-router-dom";
 import { useLoginMutation } from "../../hooks/api/auth/useLoginMutation";
 
-export const LoginPage = () => {
+export const LoginPage = (): React.ReactElement => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);

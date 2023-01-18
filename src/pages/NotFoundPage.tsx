@@ -1,3 +1,3 @@
-export const NotFoundPage = () => {
+export const NotFoundPage = (): React.ReactElement => {
   return <div>NotFoundPage</div>;
 };
