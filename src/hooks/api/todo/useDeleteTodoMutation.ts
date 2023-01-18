@@ -6,7 +6,7 @@ import { todoSlice } from "./../../../store/todoSlice";
 export const useDeleteTodoMutation = () => {
   const queryClient = useQueryClient();
   const dispatch = useAppDispatch();
-  const { setSelectedTodo } = todoSlice.actions;
+  const { resetSelectedTodo } = todoSlice.actions;
 
   return useMutation(deleteTodo, {
     onMutate: () => {
@@ -17,7 +17,7 @@ export const useDeleteTodoMutation = () => {
       console.log("data", data);
       queryClient.invalidateQueries({ queryKey: ["getTodos"] });
       queryClient.invalidateQueries({ queryKey: ["getTodoById"] });
-      dispatch(setSelectedTodo(undefined));
+      dispatch(resetSelectedTodo());
     },
     onError: (error) => {
       console.log("onError");

@@ -13,6 +13,9 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState: todoInitialState,
   reducers: {
+    resetSelectedTodo(state) {
+      return { ...state, selectedTodo: undefined };
+    },
     setSelectedTodo(state, action) {
       return { ...state, selectedTodo: action.payload };
     },
