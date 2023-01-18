@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CREATE_TODO } from "../../constants/apiUrls";
+import { CREATE_TODO_URL } from "../../constants/apiUrls";
 
 interface createTodoProps {
   todoTitle: string;
@@ -9,7 +9,7 @@ interface createTodoProps {
 export const createTodos = ({ todoTitle, todoContent }: createTodoProps) => {
   return axios
     .post(
-      CREATE_TODO,
+      CREATE_TODO_URL,
       { title: todoTitle, content: todoContent },
       {
         headers: {

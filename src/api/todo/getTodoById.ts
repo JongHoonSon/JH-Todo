@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_TODO_BY_ID } from "../../constants/apiUrls";
+import { GET_TODO_BY_ID_URL } from "../../constants/apiUrls";
 
 interface getTodoByIdProps {
   todoId: string;
@@ -7,7 +7,7 @@ interface getTodoByIdProps {
 
 export const getTodoById = ({ todoId }: getTodoByIdProps) => {
   return axios
-    .get(GET_TODO_BY_ID(todoId), {
+    .get(GET_TODO_BY_ID_URL(todoId), {
       headers: {
         Authorization: window.localStorage.getItem("jwt"),
       },

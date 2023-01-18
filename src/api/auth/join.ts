@@ -1,5 +1,5 @@
 import axios from "axios";
-import { JOIN } from "./../../constants/apiUrls";
+import { JOIN_URL } from "./../../constants/apiUrls";
 
 interface joinProps {
   emailInputValue: string;
@@ -8,7 +8,7 @@ interface joinProps {
 
 export const join = ({ emailInputValue, passwordInputValue }: joinProps) => {
   return axios
-    .post(JOIN, {
+    .post(JOIN_URL, {
       email: emailInputValue,
       password: passwordInputValue,
     })

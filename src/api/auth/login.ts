@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN } from "../../constants/apiUrls";
+import { LOGIN_URL } from "../../constants/apiUrls";
 
 interface loginProps {
   emailInputValue: string;
@@ -8,7 +8,7 @@ interface loginProps {
 
 export const login = ({ emailInputValue, passwordInputValue }: loginProps) => {
   return axios
-    .post(LOGIN, {
+    .post(LOGIN_URL, {
       email: emailInputValue,
       password: passwordInputValue,
     })

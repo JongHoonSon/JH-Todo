@@ -1,9 +1,9 @@
 import axios from "axios";
-import { GET_TODOS } from "../../constants/apiUrls";
+import { GET_TODOS_URL } from "../../constants/apiUrls";
 
 export const getTodos = () => {
   return axios
-    .get(GET_TODOS, {
+    .get(GET_TODOS_URL, {
       headers: {
         Authorization: window.localStorage.getItem("jwt"),
       },

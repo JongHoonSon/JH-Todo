@@ -1,4 +1,4 @@
-import { DELETE_TODO_BY_ID } from "./../../constants/apiUrls";
+import { DELETE_TODO_BY_ID_URL } from "./../../constants/apiUrls";
 import axios from "axios";
 
 interface deleteTodoByIdProps {
@@ -7,7 +7,7 @@ interface deleteTodoByIdProps {
 
 export const deleteTodo = ({ todoId }: deleteTodoByIdProps) => {
   return axios
-    .delete(DELETE_TODO_BY_ID(todoId), {
+    .delete(DELETE_TODO_BY_ID_URL(todoId), {
       headers: {
         Authorization: window.localStorage.getItem("jwt"),
       },

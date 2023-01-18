@@ -1,4 +1,4 @@
-import { UPDATE_TODO_BY_ID } from "./../../constants/apiUrls";
+import { UPDATE_TODO_BY_ID_URL } from "./../../constants/apiUrls";
 import axios from "axios";
 
 interface deleteTodoByIdProps {
@@ -14,7 +14,7 @@ export const updateTodo = ({
 }: deleteTodoByIdProps) => {
   return axios
     .put(
-      UPDATE_TODO_BY_ID(todoId),
+      UPDATE_TODO_BY_ID_URL(todoId),
       { title: todoTitle, content: todoContent },
       {
         headers: {
