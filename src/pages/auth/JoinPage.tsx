@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
-import { join } from "./../../api/auth/join";
 import { Link, useNavigate } from "react-router-dom";
+import { useJoinMutation } from "../../hooks/api/auth/useJoinMutation";
 
 interface JoinPageProps {
   isUserLoggedIn: boolean;
@@ -19,6 +19,8 @@ export const JoinPage = ({ isUserLoggedIn }: JoinPageProps) => {
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
   const submitButton = useRef<HTMLInputElement>(null);
+
+  const joinMutation = useJoinMutation();
 
   useEffect(() => {
     if (
@@ -38,7 +40,7 @@ export const JoinPage = ({ isUserLoggedIn }: JoinPageProps) => {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(e);
-    join({ emailInputValue, passwordInputValue }).then(() => navigate("/"));
+    joinMutation.mutate({ emailInputValue, passwordInputValue });
   };
 
   return (
