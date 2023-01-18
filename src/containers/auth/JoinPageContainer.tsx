@@ -1,9 +1,9 @@
 import { JoinPage } from "../../pages/auth/JoinPage";
 import { useAppSelector } from "../../store/store";
-import { useAuthentication } from "../../hook/useAuthentication";
+import { useAuthenticateUser } from "../../hooks/useAuthenticateUser";
 
 export const JoinPageContainer = () => {
-  useAuthentication();
+  useAuthenticateUser();
   const { isUserLoggedIn } = useAppSelector((state) => state.auth);
 
   return <JoinPage isUserLoggedIn={isUserLoggedIn} />;

@@ -1,11 +1,11 @@
 import { TodoPage } from "../../pages/todo/TodoPage";
 import { useAppDispatch, useAppSelector } from "./../../store/store";
-import { useAuthentication } from "./../../hook/useAuthentication";
+import { useAuthenticateUser } from "../../hooks/useAuthenticateUser";
 import { todoSlice } from "../../store/todoSlice";
 import { ITodo } from "./../../types/todo";
 
 export const TodoPageContainer = () => {
-  useAuthentication();
+  useAuthenticateUser();
 
   const { isUserLoggedIn } = useAppSelector((state) => state.auth);
   const { selectedTodo } = useAppSelector((state) => state.todo);

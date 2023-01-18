@@ -1,7 +1,7 @@
-import { authSlice } from "./../store/authSlice";
+import { authSlice } from "../store/authSlice";
 import { useAppSelector, useAppDispatch } from "../store/store";
 
-export const useAuthentication = () => {
+export const useAuthenticateUser = () => {
   const dispatch = useAppDispatch();
   const { isUserLoggedIn } = useAppSelector((state) => state.auth);
 

@@ -1,9 +1,9 @@
 import { LoginPage } from "../../pages/auth/LoginPage";
 import { useAppSelector } from "../../store/store";
-import { useAuthentication } from "./../../hook/useAuthentication";
+import { useAuthenticateUser } from "../../hooks/useAuthenticateUser";
 
 export const LoginPageContainer = () => {
-  useAuthentication();
+  useAuthenticateUser();
   const { isUserLoggedIn } = useAppSelector((state) => state.auth);
 
   return <LoginPage isUserLoggedIn={isUserLoggedIn} />;
