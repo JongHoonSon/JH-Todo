@@ -6,7 +6,7 @@ interface createTodoProps {
   todoContent: string;
 }
 
-export const createTodos = ({ todoTitle, todoContent }: createTodoProps) => {
+export const createTodo = ({ todoTitle, todoContent }: createTodoProps) => {
   return axios
     .post(
       CREATE_TODO_URL,

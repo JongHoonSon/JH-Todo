@@ -25,10 +25,7 @@ export const TodoPage = ({
     if (!isUserLoggedIn) navgiate("/");
   }, []);
 
-  const { data: todos, refetch: refetchTodos } = useQuery<ITodo[] | undefined>(
-    ["getTodos"],
-    getTodos
-  );
+  const { data: todos } = useQuery<ITodo[] | undefined>(["getTodos"], getTodos);
 
   return (
     <>
@@ -39,10 +36,10 @@ export const TodoPage = ({
             todos={todos}
             handleSelectedTodoChange={handleSelectedTodoChange}
           />
-          <TodoForm refetchTodos={refetchTodos} />
+          <TodoForm />
         </Section>
         <Section>
-          <TodoDetail selectedTodo={selectedTodo} refetchTodos={refetchTodos} />
+          <TodoDetail selectedTodo={selectedTodo} />
         </Section>
       </Container>
     </>

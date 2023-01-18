@@ -4,15 +4,15 @@ import { getTodoById } from "./../../api/todo/getTodoById";
 import { useQuery } from "@tanstack/react-query";
 import { updateTodo } from "../../api/todo/updateTodo";
 import { useState } from "react";
-import { deleteTodo } from "./../../api/todo/deleteTodo";
+import { useDeleteTodoMutation } from "../../hooks/api/todo/useDeleteTodoMutation";
+import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutation";
 
 interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
-  refetchTodos: () => void;
 }
 
-export const TodoDetail = ({ selectedTodo, refetchTodos }: TodoDetailProps) => {
-  const { data: todo, refetch: refetchTodo } = useQuery<ITodo | undefined>(
+export const TodoDetail = ({ selectedTodo }: TodoDetailProps) => {
+  const { data: todo } = useQuery<ITodo | undefined>(
     ["getTodoById", `${selectedTodo?.id}`],
     () =>
       getTodoById(
@@ -26,24 +26,23 @@ export const TodoDetail = ({ selectedTodo, refetchTodos }: TodoDetailProps) => {
   const [newContent, setNewContent] = useState<string>(
     todo ? todo.content : ""
   );
+  const updateTodoMutation = useUpdateTodoMutation();
+  const deleteTodoMutation = useDeleteTodoMutation();
 
   const handleTodoEditFormSumbit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    updateTodo({
+    updateTodoMutation.mutate({
       todoId: todo ? todo.id : "",
       todoTitle: newTitle,
       todoContent: newContent,
     });
-    refetchTodo();
-    refetchTodos();
     setNewTitle("");
     setNewContent("");
   };
 
   const handleTodoDeleteButtonClick = () => {
-    deleteTodo({ todoId: todo ? todo.id : "" });
-    refetchTodos();
+    deleteTodoMutation.mutate({ todoId: todo ? todo.id : "" });
   };
 
   return (

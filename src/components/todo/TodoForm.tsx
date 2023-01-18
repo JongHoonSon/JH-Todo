@@ -1,23 +1,18 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { createTodos } from "../../api/todo/createTodo";
+import { useCreateTodoMutation } from "../../hooks/api/todo/useCreateTodoMutation";
 
-interface TodoFormProps {
-  refetchTodos: () => void;
-}
-
-export const TodoForm = ({ refetchTodos }: TodoFormProps) => {
+export const TodoForm = () => {
   const [todoTitle, setTodoTitle] = useState<string>("");
   const [todoContent, setTodoContent] = useState<string>("");
+  const createTodoMutation = useCreateTodoMutation();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    createTodos({ todoTitle, todoContent }).then(() => {
-      refetchTodos();
-      setTodoTitle("");
-      setTodoContent("");
-    });
+    createTodoMutation.mutate({ todoTitle, todoContent });
+    setTodoTitle("");
+    setTodoContent("");
   };
 
   return (
