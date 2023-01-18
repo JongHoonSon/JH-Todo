@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from "../store/store";
 
 export const useAuthentication = () => {
   const dispatch = useAppDispatch();
-  const isUserLoggedIn = useAppSelector((state) => state.auth.isUserLoggedIn);
+  const { isUserLoggedIn } = useAppSelector((state) => state.auth);
 
   const isTokenExist =
     typeof window.localStorage.getItem("jwt") === "string" ? true : false;
