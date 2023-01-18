@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import { ITodo } from "../../types/todo";
-import { getTodoById } from "./../../api/todo/getTodoById";
-import { useQuery } from "@tanstack/react-query";
-import { updateTodo } from "../../api/todo/updateTodo";
 import { useState } from "react";
 import { useDeleteTodoMutation } from "../../hooks/api/todo/useDeleteTodoMutation";
 import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutation";
