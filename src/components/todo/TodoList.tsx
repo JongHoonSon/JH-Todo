@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import { ITodo } from "../../types/todo";
 import { TodoListItem } from "./TodoListItem";
+import { useGetTodosQuery } from "../../hooks/api/todo/useGetTodosQuery";
 
 interface TodoListProps {
-  todos: ITodo[] | undefined;
   handleSelectedTodoChange: (newSelectedTodo: ITodo) => void;
 }
 
-export const TodoList = ({
-  todos,
-  handleSelectedTodoChange,
-}: TodoListProps) => {
+export const TodoList = ({ handleSelectedTodoChange }: TodoListProps) => {
+  const { data: todos } = useGetTodosQuery();
+
   return (
     <Container>
       <TodoListHeader>
@@ -22,7 +21,7 @@ export const TodoList = ({
           todos.map((todo) => (
             <TodoListItem
               handleSelectedTodoChange={handleSelectedTodoChange}
-              key={todo.createdAt}
+              key={todo.id}
               todo={todo}
             />
           ))

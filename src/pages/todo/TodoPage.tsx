@@ -2,9 +2,7 @@ import styled from "styled-components";
 import { TodoList } from "../../components/todo/TodoList";
 import { TodoDetail } from "./../../components/todo/TodoDetail";
 import { TodoForm } from "./../../components/todo/TodoForm";
-import { useQuery } from "@tanstack/react-query";
 import { ITodo } from "../../types/todo";
-import { getTodos } from "./../../api/todo/getTodos";
 import { useEffect } from "react";
 import { HeaderContainer } from "../../containers/common/HeaderContainer";
 import { useNavigate } from "react-router-dom";
@@ -25,17 +23,12 @@ export const TodoPage = ({
     if (!isUserLoggedIn) navgiate("/");
   }, []);
 
-  const { data: todos } = useQuery<ITodo[] | undefined>(["getTodos"], getTodos);
-
   return (
     <>
       <HeaderContainer />
       <Container>
         <Section>
-          <TodoList
-            todos={todos}
-            handleSelectedTodoChange={handleSelectedTodoChange}
-          />
+          <TodoList handleSelectedTodoChange={handleSelectedTodoChange} />
           <TodoForm />
         </Section>
         <Section>

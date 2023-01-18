@@ -6,21 +6,14 @@ import { updateTodo } from "../../api/todo/updateTodo";
 import { useState } from "react";
 import { useDeleteTodoMutation } from "../../hooks/api/todo/useDeleteTodoMutation";
 import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutation";
+import { useGetTodoByIdQuery } from "./../../hooks/api/todo/useGetTodoByIdQuery";
 
 interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
 }
 
 export const TodoDetail = ({ selectedTodo }: TodoDetailProps) => {
-  const { data: todo } = useQuery<ITodo | undefined>(
-    ["getTodoById", `${selectedTodo?.id}`],
-    () =>
-      getTodoById(
-        selectedTodo === undefined
-          ? { todoId: "0" }
-          : { todoId: selectedTodo.id }
-      )
-  );
+  const { data: todo } = useGetTodoByIdQuery(selectedTodo);
 
   const [newTitle, setNewTitle] = useState<string>(todo ? todo.title : "");
   const [newContent, setNewContent] = useState<string>(
