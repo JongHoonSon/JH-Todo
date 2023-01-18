@@ -4,6 +4,7 @@ import { GlobalStyles } from "./styles/GlobalStyles";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function App() {
         <Provider store={store}>
           <Router />
         </Provider>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </AppLayout>
   );
