@@ -5,7 +5,7 @@ import { TodoForm } from "./../../components/todo/TodoForm";
 import { useQuery } from "@tanstack/react-query";
 import { ITodo } from "../../types/todo";
 import { getTodos } from "./../../api/todo/getTodos";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { HeaderContainer } from "../../containers/common/HeaderContainer";
 import { useNavigate } from "react-router-dom";
 
