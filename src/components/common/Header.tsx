@@ -1,13 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-interface HeaderProps {
-  logout: () => void;
-}
-
-export const Header = ({ logout }: HeaderProps) => {
+export const Header = () => {
   const navigate = useNavigate();
   const handleLogoutButtonClick = () => {
-    logout();
     window.localStorage.removeItem("jwt");
     navigate("/");
   };

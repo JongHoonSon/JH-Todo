@@ -1,24 +1,13 @@
 import styled from "styled-components";
 import { TodoForm } from "./../../components/todo/TodoForm";
-import { useEffect } from "react";
-import { HeaderContainer } from "../../containers/common/HeaderContainer";
-import { useNavigate } from "react-router-dom";
 import { TodoDetailContainer } from "./../../containers/todo/TodoDetailContainer";
 import { TodoList } from "../../components/todo/TodoList";
+import { Header } from "../../components/common/Header";
 
-interface TodoPageProps {
-  isUserLoggedIn: boolean;
-}
-
-export const TodoPage = ({ isUserLoggedIn }: TodoPageProps) => {
-  const navgiate = useNavigate();
-  useEffect(() => {
-    if (!isUserLoggedIn) navgiate("/");
-  }, []);
-
+export const TodoPage = () => {
   return (
     <>
-      <HeaderContainer />
+      <Header />
       <Container>
         <Section>
           <TodoList />

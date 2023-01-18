@@ -1,18 +1,26 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePageContainer } from "./containers/home/HomePageContainer";
-import { LoginPageContainer } from "./containers/auth/LoginPageContainer";
-import { JoinPageContainer } from "./containers/auth/JoinPageContainer";
-import { TodoPageContainer } from "./containers/todo/TodoPageContainer";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { PrivateRoute } from "./routes/PrivateRoute";
+import { MainRoute } from "./routes/MainRoute";
+import { JoinPage } from "./pages/auth/JoinPage";
+import { PublicRoute } from "./routes/PublicRoute";
+import { LoginPage } from "./pages/auth/LoginPage";
+import { TodoPage } from "./pages/todo/TodoPage";
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePageContainer />} />
-        <Route path="/auth/join" element={<JoinPageContainer />} />
-        <Route path="/auth/login" element={<LoginPageContainer />} />
-        <Route path="/todo" element={<TodoPageContainer />} />
+        <Route path="/" element={<MainRoute />} />
+        <Route element={<PublicRoute />}>
+          <Route path="/auth/join" element={<JoinPage />} />
+        </Route>
+        <Route element={<PublicRoute />}>
+          <Route path="/auth/login" element={<LoginPage />} />
+        </Route>
+        <Route element={<PrivateRoute />}>
+          <Route path="/todo" element={<TodoPage />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

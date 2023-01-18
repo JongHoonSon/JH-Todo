@@ -4,19 +4,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLoginMutation } from "../../hooks/api/auth/useLoginMutation";
 
-interface LoginPageProps {
-  isUserLoggedIn: boolean;
-}
-
-export const LoginPage = ({ isUserLoggedIn }: LoginPageProps) => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (isUserLoggedIn) navigate("/");
-  });
-
+export const LoginPage = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>("");
   const [passwordInputValue, setPasswordInputValue] = useState<string>("");
   const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
@@ -40,7 +31,6 @@ export const LoginPage = ({ isUserLoggedIn }: LoginPageProps) => {
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e);
     loginMutation.mutate({ emailInputValue, passwordInputValue });
   };
 
