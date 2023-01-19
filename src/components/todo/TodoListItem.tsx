@@ -2,23 +2,16 @@ import styled from "styled-components";
 import { ITodo } from "./../../types/todo";
 
 interface TodoListItemProps {
-  handleSelectedTodoChange: (newSelectedTodo: ITodo) => void;
-  handleTodoEditFormOpenChange: (boolean: boolean) => void;
   todo: ITodo;
+  onClick: () => void;
 }
 
 export const TodoListItem = ({
   todo,
-  handleSelectedTodoChange,
-  handleTodoEditFormOpenChange,
+  onClick,
 }: TodoListItemProps): React.ReactElement => {
   return (
-    <Container
-      onClick={() => {
-        handleSelectedTodoChange(todo);
-        handleTodoEditFormOpenChange(false);
-      }}
-    >
+    <Container onClick={onClick}>
       <span>{todo.title}</span>
       <span>{todo.content}</span>
     </Container>

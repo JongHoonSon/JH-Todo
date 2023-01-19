@@ -1,8 +1,17 @@
 import styled from "styled-components";
 import { useGetTodosQuery } from "../../hooks/api/todo/useGetTodosQuery";
-import { TodoListItemContainer } from "../../containers/todo/TodoListItemContainer";
+import { ITodo } from "../../types/todo";
+import { TodoListItem } from "./TodoListItem";
 
-export const TodoList = (): React.ReactElement => {
+interface TodoListProps {
+  handleSelectedTodoChange: (newSelectedTodo: ITodo) => void;
+  handleTodoEditFormOpenChange: (boolean: boolean) => void;
+}
+
+export const TodoList = ({
+  handleSelectedTodoChange,
+  handleTodoEditFormOpenChange,
+}: TodoListProps): React.ReactElement => {
   const { data: todos } = useGetTodosQuery();
 
   return (
@@ -14,7 +23,14 @@ export const TodoList = (): React.ReactElement => {
       <TodoListContainer>
         {todos ? (
           todos.map((todo) => (
-            <TodoListItemContainer key={todo.id} todo={todo} />
+            <TodoListItem
+              key={todo.id}
+              todo={todo}
+              onClick={() => {
+                handleSelectedTodoChange(todo);
+                handleTodoEditFormOpenChange(false);
+              }}
+            />
           ))
         ) : (
           <div>empty</div>

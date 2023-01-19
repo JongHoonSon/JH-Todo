@@ -1,17 +1,9 @@
 import { useAppDispatch } from "../../store/store";
 import { todoSlice } from "../../store/todoSlice";
 import { ITodo } from "../../types/todo";
-import { TodoListItem } from "../../components/todo/TodoListItem";
+import { TodoList } from "../../components/todo/TodoList";
 
-interface TodoListItemContainerProps {
-  key: string;
-  todo: ITodo;
-}
-
-export const TodoListItemContainer = ({
-  key,
-  todo,
-}: TodoListItemContainerProps) => {
+export const TodoListContainer = () => {
   const dispatch = useAppDispatch();
   const { setSelectedTodo, setTodoEditFormOpen } = todoSlice.actions;
 
@@ -24,11 +16,9 @@ export const TodoListItemContainer = ({
   };
 
   return (
-    <TodoListItem
+    <TodoList
       handleSelectedTodoChange={handleSelectedTodoChange}
       handleTodoEditFormOpenChange={handleTodoEditFormOpenChange}
-      key={key}
-      todo={todo}
-    ></TodoListItem>
+    ></TodoList>
   );
 };

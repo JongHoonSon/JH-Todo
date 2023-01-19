@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { TodoCreateForm } from "../../components/todo/TodoCreateForm";
 import { TodoDetailContainer } from "./../../containers/todo/TodoDetailContainer";
-import { TodoList } from "../../components/todo/TodoList";
 import { Header } from "../../components/common/Header";
 import { TodoEditFormContainer } from "./../../containers/todo/TodoEditFormContainer";
+import { TodoListContainer } from "./../../containers/todo/TodoListContainer";
 
 interface TodoPageProps {
   isTodoEditFormOpen: boolean;
@@ -17,7 +17,7 @@ export const TodoPage = ({
       <Header />
       <Container>
         <Section>
-          <TodoList />
+          <TodoListContainer />
           <TodoCreateForm />
         </Section>
         <Section>
