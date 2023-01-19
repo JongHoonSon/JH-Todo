@@ -1,2 +1,2 @@
 export const isUserLoggedIn = (): boolean =>
-  Boolean(localStorage.getItem("jwt"));
+  Boolean(window.localStorage.getItem("jwt"));
