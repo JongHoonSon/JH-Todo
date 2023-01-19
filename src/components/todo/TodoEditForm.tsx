@@ -5,9 +5,13 @@ import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutat
 
 interface TodoEditFormProps {
   selectedTodo: ITodo | undefined;
+  handleTodoEditFormOpenChange: (boolean: boolean) => void;
 }
 
-export const TodoEditForm = ({ selectedTodo }: TodoEditFormProps) => {
+export const TodoEditForm = ({
+  selectedTodo,
+  handleTodoEditFormOpenChange,
+}: TodoEditFormProps) => {
   const [newTitle, setNewTitle] = useState<string>(
     selectedTodo ? selectedTodo.title : ""
   );
@@ -44,6 +48,9 @@ export const TodoEditForm = ({ selectedTodo }: TodoEditFormProps) => {
           value={newContent}
           onChange={(e) => setNewContent(e.target.value)}
         />
+        <button onClick={() => handleTodoEditFormOpenChange(false)}>
+          취소
+        </button>
         <input type="submit" value="수정" />
       </CustomForm>
     </Container>
