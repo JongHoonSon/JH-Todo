@@ -3,17 +3,20 @@ import { ITodo } from "./../../types/todo";
 
 interface TodoListItemProps {
   handleSelectedTodoChange: (newSelectedTodo: ITodo) => void;
+  handleTodoEditFormOpenChange: (boolean: boolean) => void;
   todo: ITodo;
 }
 
 export const TodoListItem = ({
   todo,
   handleSelectedTodoChange,
+  handleTodoEditFormOpenChange,
 }: TodoListItemProps): React.ReactElement => {
   return (
     <Container
       onClick={() => {
         handleSelectedTodoChange(todo);
+        handleTodoEditFormOpenChange(false);
       }}
     >
       <span>{todo.title}</span>

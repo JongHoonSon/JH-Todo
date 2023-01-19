@@ -5,7 +5,7 @@ import { MainRoute } from "./routes/MainRoute";
 import { JoinPage } from "./pages/auth/JoinPage";
 import { PublicRoute } from "./routes/PublicRoute";
 import { LoginPage } from "./pages/auth/LoginPage";
-import { TodoPage } from "./pages/todo/TodoPage";
+import { TodoPageContainer } from "./containers/todo/TodoPageContainer";
 
 export const Router = () => {
   return (
@@ -19,7 +19,7 @@ export const Router = () => {
           <Route path="/auth/login" element={<LoginPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
-          <Route path="/todo" element={<TodoPage />} />
+          <Route path="/todo" element={<TodoPageContainer />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

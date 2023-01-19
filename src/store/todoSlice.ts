@@ -3,10 +3,12 @@ import { ITodo } from "./../types/todo";
 
 interface todoState {
   selectedTodo: ITodo | undefined;
+  isTodoEditFormOpen: boolean;
 }
 
 const todoInitialState: todoState = {
   selectedTodo: undefined,
+  isTodoEditFormOpen: false,
 };
 
 export const todoSlice = createSlice({
@@ -18,6 +20,9 @@ export const todoSlice = createSlice({
     },
     setSelectedTodo(state, action) {
       return { ...state, selectedTodo: action.payload };
+    },
+    setTodoEditFormOpen(state, action) {
+      return { ...state, isTodoEditFormOpen: action.payload };
     },
   },
 });

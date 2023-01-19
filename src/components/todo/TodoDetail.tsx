@@ -1,37 +1,19 @@
 import styled from "styled-components";
 import { ITodo } from "../../types/todo";
-import { useState } from "react";
 import { useDeleteTodoMutation } from "../../hooks/api/todo/useDeleteTodoMutation";
-import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutation";
 import { useGetTodoByIdQuery } from "./../../hooks/api/todo/useGetTodoByIdQuery";
 
 interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
+  handleTodoEditFormOpenChange: (boolean: boolean) => void;
 }
 
 export const TodoDetail = ({
   selectedTodo,
+  handleTodoEditFormOpenChange,
 }: TodoDetailProps): React.ReactElement => {
   const { data: todo } = useGetTodoByIdQuery(selectedTodo);
-
-  const [newTitle, setNewTitle] = useState<string>(todo ? todo.title : "");
-  const [newContent, setNewContent] = useState<string>(
-    todo ? todo.content : ""
-  );
-  const updateTodoMutation = useUpdateTodoMutation();
   const deleteTodoMutation = useDeleteTodoMutation();
-
-  const handleTodoEditFormSumbit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    updateTodoMutation.mutate({
-      todoId: todo ? todo.id : "",
-      todoTitle: newTitle,
-      todoContent: newContent,
-    });
-    setNewTitle("");
-    setNewContent("");
-  };
 
   const handleTodoDeleteButtonClick = () => {
     deleteTodoMutation.mutate({ todoId: todo ? todo.id : "" });
@@ -50,28 +32,13 @@ export const TodoDetail = ({
             <span>{`작성일 : ${todo.createdAt}`}</span>
             <span>{`수정일 : ${todo.updatedAt}`}</span>
           </TodoDetailContainer>
-          <TodoEditFormContainer>
-            <CustomForm onSubmit={handleTodoEditFormSumbit}>
-              <label htmlFor="titleInput">제목</label>
-              <input
-                type="text"
-                id="titleInput"
-                value={newTitle}
-                onChange={(e) => setNewTitle(e.target.value)}
-              />
-              <label htmlFor="contentInput">내용</label>
-              <input
-                type="text"
-                id="contentInput"
-                value={newContent}
-                onChange={(e) => setNewContent(e.target.value)}
-              />
-              <input type="submit" value="수정" />
-            </CustomForm>
-          </TodoEditFormContainer>
-          <TodoDeleteButton onClick={handleTodoDeleteButtonClick}>
+
+          <TodoOptionButton onClick={() => handleTodoEditFormOpenChange(true)}>
+            수정
+          </TodoOptionButton>
+          <TodoOptionButton onClick={handleTodoDeleteButtonClick}>
             삭제
-          </TodoDeleteButton>
+          </TodoOptionButton>
         </>
       )}
     </Container>
@@ -98,22 +65,7 @@ const TodoDetailContainer = styled.div`
   align-items: center;
 `;
 
-const TodoEditFormContainer = styled.div`
-  width: 50%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const CustomForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const TodoDeleteButton = styled.button`
+const TodoOptionButton = styled.button`
   width: 50px;
   height: 50px;
 `;

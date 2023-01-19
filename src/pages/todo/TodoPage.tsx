@@ -1,20 +1,31 @@
 import styled from "styled-components";
-import { TodoForm } from "./../../components/todo/TodoForm";
+import { TodoCreateForm } from "../../components/todo/TodoCreateForm";
 import { TodoDetailContainer } from "./../../containers/todo/TodoDetailContainer";
 import { TodoList } from "../../components/todo/TodoList";
 import { Header } from "../../components/common/Header";
+import { TodoEditFormContainer } from "./../../containers/todo/TodoEditFormContainer";
 
-export const TodoPage = (): React.ReactElement => {
+interface TodoPageProps {
+  isTodoEditFormOpen: boolean;
+}
+
+export const TodoPage = ({
+  isTodoEditFormOpen,
+}: TodoPageProps): React.ReactElement => {
   return (
     <>
       <Header />
       <Container>
         <Section>
           <TodoList />
-          <TodoForm />
+          <TodoCreateForm />
         </Section>
         <Section>
-          <TodoDetailContainer />
+          {isTodoEditFormOpen ? (
+            <TodoEditFormContainer />
+          ) : (
+            <TodoDetailContainer />
+          )}
         </Section>
       </Container>
     </>
