@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { ITodo } from "../../types/todo";
 import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutation";
+import { useGetTodoByIdQuery } from "../../hooks/api/todo/useGetTodoByIdQuery";
 
 interface TodoEditFormProps {
   selectedTodo: ITodo | undefined;
@@ -12,11 +13,10 @@ export const TodoEditForm = ({
   selectedTodo,
   handleTodoEditFormOpenChange,
 }: TodoEditFormProps) => {
-  const [newTitle, setNewTitle] = useState<string>(
-    selectedTodo ? selectedTodo.title : ""
-  );
+  const { data: todo } = useGetTodoByIdQuery(selectedTodo);
+  const [newTitle, setNewTitle] = useState<string>(todo ? todo.title : "");
   const [newContent, setNewContent] = useState<string>(
-    selectedTodo ? selectedTodo.content : ""
+    todo ? todo.content : ""
   );
   const updateTodoMutation = useUpdateTodoMutation();
 
@@ -30,6 +30,7 @@ export const TodoEditForm = ({
     });
     setNewTitle("");
     setNewContent("");
+    handleTodoEditFormOpenChange(false);
   };
   return (
     <Container>
