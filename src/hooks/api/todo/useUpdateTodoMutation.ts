@@ -1,25 +1,26 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateTodo } from "../../../api/todo/updateTodo";
+import { useCustomSnackbar } from "../../common/useCustomSnackbar";
+import { IMutationError } from "./../../../types/mutationType";
 
 export const useUpdateTodoMutation = () => {
   const queryClient = useQueryClient();
+  const { customSnackbar } = useCustomSnackbar();
 
   return useMutation(updateTodo, {
-    onMutate: () => {
-      console.log("onMutate");
-    },
-    onSuccess: (data) => {
-      console.log("onSuccess");
-      console.log("data", data);
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["getTodos"] });
       queryClient.invalidateQueries({ queryKey: ["getTodoById"] });
+      customSnackbar({
+        isSuccess: true,
+        message: "Todo 수정 완료",
+      });
     },
-    onError: (error) => {
-      console.log("onError");
-      console.log("error", error);
-    },
-    onSettled: () => {
-      console.log("onSettled");
+    onError: (error: IMutationError) => {
+      customSnackbar({
+        isSuccess: false,
+        message: `${error.response.data.details}`,
+      });
     },
   });
 };
