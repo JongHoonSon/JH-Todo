@@ -1,37 +1,31 @@
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useRef } from "react";
 import { vaildateEmail, validatePassword } from "../../utils/validateForm";
 import { Link } from "react-router-dom";
 import { useLoginMutation } from "../../hooks/api/auth/useLoginMutation";
+import { useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form/dist/types";
+
+interface LoginFormInputs {
+  email: string;
+  password: string;
+}
 
 export const LoginPage = (): React.ReactElement => {
-  const [emailInputValue, setEmailInputValue] = useState<string>("");
-  const [passwordInputValue, setPasswordInputValue] = useState<string>("");
-  const [isButtonActive, setIsButtonActive] = useState<boolean>(false);
-  const submitButton = useRef<HTMLInputElement>(null);
   const loginMutation = useLoginMutation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<LoginFormInputs>();
 
-  useEffect(() => {
-    if (
-      vaildateEmail(emailInputValue) &&
-      validatePassword(passwordInputValue)
-    ) {
-      if (!isButtonActive) setIsButtonActive(true);
-    } else {
-      if (isButtonActive) setIsButtonActive(false);
-    }
-  }, [emailInputValue, passwordInputValue, isButtonActive]);
-
-  useEffect(() => {
-    submitButton.current?.toggleAttribute("disabled");
-  }, [isButtonActive]);
-
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    loginMutation.mutate({ emailInputValue, passwordInputValue });
+  const handleLoginFormSubmit: SubmitHandler<LoginFormInputs> = (data) => {
+    console.log("form data");
+    console.log(data);
+    loginMutation.mutate({
+      emailInputValue: data.email,
+      passwordInputValue: data.password,
+    });
   };
 
   return (
@@ -39,16 +33,22 @@ export const LoginPage = (): React.ReactElement => {
       <Helmet>
         <title>로그인</title>
       </Helmet>
-      <form onSubmit={(e) => handleFormSubmit(e)}>
+      <form onSubmit={handleSubmit(handleLoginFormSubmit)}>
         <input
-          value={emailInputValue}
-          onChange={(e) => setEmailInputValue(e.target.value)}
+          {...register("email", {
+            required: "이메일을 입력하세요.",
+            validate: vaildateEmail,
+          })}
         />
+        {errors.email && <span>{errors.email.message}</span>}
         <input
-          value={passwordInputValue}
-          onChange={(e) => setPasswordInputValue(e.target.value)}
+          {...register("password", {
+            required: "비밀번호를 입력하세요.",
+            validate: validatePassword,
+          })}
         />
-        <input type="submit" ref={submitButton} disabled />
+        {errors.password && <span>{errors.password.message}</span>}
+        <input type="submit" disabled={!isValid} />
       </form>
       <Link to="/auth/join">회원가입</Link>
     </Container>
@@ -56,8 +56,8 @@ export const LoginPage = (): React.ReactElement => {
 };
 
 const Container = styled.div`
-  width: 50%;
-  height: 50%;
+  width: 500px;
+  height: 300px;
   margin: auto;
   background-color: skyblue;
 `;
