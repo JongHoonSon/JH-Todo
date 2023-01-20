@@ -2,13 +2,16 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { login } from "./../../../api/auth/login";
 
-export const useLoginMutation = () => {
+interface IuseLoginMutation {
+  handleLoginErrorChange: (boolean: boolean) => void;
+}
+
+export const useLoginMutation = ({
+  handleLoginErrorChange,
+}: IuseLoginMutation) => {
   const navigate = useNavigate();
 
   return useMutation(login, {
-    onMutate: () => {
-      console.log("onMutate");
-    },
     onSuccess: (data) => {
       console.log("onSuccess");
       console.log("data", data);
@@ -17,9 +20,7 @@ export const useLoginMutation = () => {
     onError: (error) => {
       console.log("onError");
       console.log("error", error);
-    },
-    onSettled: () => {
-      console.log("onSettled");
+      handleLoginErrorChange(true);
     },
   });
 };
