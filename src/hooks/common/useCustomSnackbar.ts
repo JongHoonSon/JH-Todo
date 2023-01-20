@@ -1,19 +1,19 @@
 import { useSnackbar } from "notistack";
 
-interface IuseCustomSnackbar {
+interface ISnackbar {
   isSuccess: boolean;
   message: string;
 }
 
-export const useCustomSnackbar = ({
-  isSuccess,
-  message,
-}: IuseCustomSnackbar): (() => void) => {
+export const useCustomSnackbar = () => {
   const { enqueueSnackbar } = useSnackbar();
-
-  if (isSuccess) {
-    return () => enqueueSnackbar(message, { variant: "success" });
-  } else {
-    return () => enqueueSnackbar(message, { variant: "error" });
-  }
+  return {
+    customSnackbar: ({ isSuccess, message }: ISnackbar) => {
+      if (isSuccess) {
+        enqueueSnackbar(message, { variant: "success" });
+      } else {
+        enqueueSnackbar(message, { variant: "error" });
+      }
+    },
+  };
 };
