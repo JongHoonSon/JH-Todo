@@ -20,8 +20,6 @@ export const LoginPage = (): React.ReactElement => {
   } = useForm<LoginFormInputs>();
 
   const handleLoginFormSubmit: SubmitHandler<LoginFormInputs> = (data) => {
-    console.log("form data");
-    console.log(data);
     loginMutation.mutate({
       emailInputValue: data.email,
       passwordInputValue: data.password,
