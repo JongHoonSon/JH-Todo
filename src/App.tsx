@@ -5,6 +5,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { SnackbarProvider } from "notistack";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +15,9 @@ function App() {
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <Router />
+          <SnackbarProvider maxSnack={3}>
+            <Router />
+          </SnackbarProvider>
         </Provider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
