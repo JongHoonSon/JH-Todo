@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { isUserLoggedIn } from "../utils/isUserLoggedIn";
+import { checkUserLoggedIn } from "../utils/checkUserLoggedIn";
 
 export const PublicRoute = (): React.ReactElement => {
-  return isUserLoggedIn() ? <Navigate to="/" /> : <Outlet />;
+  return checkUserLoggedIn() ? <Navigate to="/" /> : <Outlet />;
 };

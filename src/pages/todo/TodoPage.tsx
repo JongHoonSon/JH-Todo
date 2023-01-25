@@ -14,7 +14,6 @@ export const TodoPage = ({
 }: TodoPageProps): React.ReactElement => {
   return (
     <>
-      <Header />
       <Container>
         <Section>
           <TodoListContainer />

@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { isUserLoggedIn } from "../utils/isUserLoggedIn";
+import { checkUserLoggedIn } from "../utils/checkUserLoggedIn";
 
 export const PrivateRoute = (): React.ReactElement => {
-  return isUserLoggedIn() ? <Outlet /> : <Navigate to="/" />;
+  return checkUserLoggedIn() ? <Outlet /> : <Navigate to="/" />;
 };

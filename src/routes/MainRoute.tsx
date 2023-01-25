@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
-import { isUserLoggedIn } from "../utils/isUserLoggedIn";
+import { checkUserLoggedIn } from "../utils/checkUserLoggedIn";
 
 export const MainRoute = (): React.ReactElement => {
-  return isUserLoggedIn() ? (
+  return checkUserLoggedIn() ? (
     <Navigate to="/todo" />
   ) : (
     <Navigate to="/auth/login" />
