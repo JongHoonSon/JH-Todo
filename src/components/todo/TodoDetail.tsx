@@ -27,7 +27,7 @@ export const TodoDetail = ({
   return (
     <Container>
       {todo === undefined ? (
-        "empty"
+        <Empty>선택한 할 일의 상세 정보가 이곳에 표시됩니다.</Empty>
       ) : (
         <>
           <TodoDetailHeader>할 일 상세 정보</TodoDetailHeader>
@@ -56,7 +56,7 @@ const Container = styled.div`
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-color: ${(props) => props.theme.bgColor_primary};
   padding: 20px;
@@ -85,7 +85,7 @@ const TodoDetailContainer = styled.div`
   margin: 100px 0px;
   align-items: center;
 
-  font-size: 16px;
+  font-size: 20px;
   color: ${(props) => props.theme.textColor_secondary};
 `;
 
@@ -95,4 +95,8 @@ const TodoOptionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Empty = styled.span`
+  color: ${(props) => props.theme.textColor_tertiary};
 `;
