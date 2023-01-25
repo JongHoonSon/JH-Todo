@@ -6,6 +6,7 @@ import { useLoginMutation } from "../../hooks/api/auth/useLoginMutation";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { useState } from "react";
+import { SubmitInput } from "../../components/common/SubmitInput";
 
 interface LoginFormInputs {
   email: string;
@@ -45,10 +46,11 @@ export const LoginPage = (): React.ReactElement => {
         <title>로그인</title>
       </Helmet>
       <Container>
+        <LoginHeader>Login</LoginHeader>
         <LoginForm onSubmit={handleSubmit(handleLoginFormSubmit)}>
           <InputWrapper>
             <label htmlFor="email">이메일</label>
-            <input
+            <Input
               type="text"
               id="email"
               defaultValue=""
@@ -56,14 +58,17 @@ export const LoginPage = (): React.ReactElement => {
                 required: "이메일을 입력해 주세요.",
                 validate: vaildateEmail,
               })}
-              placeholder="이메일"
             />
           </InputWrapper>
-          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+
+          <ErrorWrapper>
+            <EmptySpace />
+            <ErrorMessage>{errors.email && errors.email.message}</ErrorMessage>
+          </ErrorWrapper>
 
           <InputWrapper>
             <label htmlFor="password">비밀번호</label>
-            <input
+            <Input
               type="password"
               id="password"
               defaultValue=""
@@ -71,35 +76,49 @@ export const LoginPage = (): React.ReactElement => {
                 required: "비밀번호를 입력해 주세요.",
                 validate: validatePassword,
               })}
-              placeholder="비밀번호"
             />
           </InputWrapper>
-          {errors.password && (
-            <ErrorMessage>{errors.password.message}</ErrorMessage>
-          )}
-          <input type="submit" disabled={!isValid} />
+
+          <ErrorWrapper>
+            <EmptySpace />
+            <ErrorMessage>
+              {errors.password && errors.password.message}
+            </ErrorMessage>
+          </ErrorWrapper>
+          <SubmitInput type="submit" value="로그인" disabled={!isValid} />
         </LoginForm>
         {loginError && (
           <ErrorMessage>
             아이디 또는 비밀번호 정보가 일치하지 않습니다.
           </ErrorMessage>
         )}
-        <Link to="/auth/join">회원가입</Link>
+        <CustomLink to="/auth/join">회원가입</CustomLink>
       </Container>
     </>
   );
 };
 
 const Container = styled.div`
-  width: 500px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin: auto;
-  border: 1px solid skyblue;
+  border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 50px;
+  color: ${(props) => props.theme.textColor_primary};
+  background-color: ${(props) => props.theme.bgColor_primary};
+  padding: 10px;
+`;
+
+const LoginHeader = styled.div`
+  height: 50px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const LoginForm = styled.form`
@@ -109,9 +128,44 @@ const LoginForm = styled.form`
   align-items: center;
 `;
 
-const InputWrapper = styled.div``;
+const InputWrapper = styled.div`
+  width: 280px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 5px;
+`;
+
+const Input = styled.input`
+  width: 220px;
+  height: 30px;
+  padding: 5px 10px;
+
+  color: ${(props) => props.theme.textColor_primary};
+  background-color: ${(props) => props.theme.bgColor_tertiary};
+  border: 2px solid ${(props) => props.theme.borderColor};
+`;
+
+const ErrorWrapper = styled.div`
+  width: 280px;
+  display: flex;
+`;
+
+const EmptySpace = styled.div`
+  width: 60px;
+`;
 
 const ErrorMessage = styled.span`
-  font-size: 16px;
-  color: red;
+  width: 220px;
+  height: 20px;
+  font-size: 12px;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+`;
+
+const CustomLink = styled(Link)`
+  font-size: 12px;
+  color: ${(props) => props.theme.textColor_primary};
 `;
