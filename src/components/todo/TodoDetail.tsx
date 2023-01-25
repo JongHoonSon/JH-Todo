@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ITodo } from "../../types/todo";
 import { useDeleteTodoMutation } from "../../hooks/api/todo/useDeleteTodoMutation";
 import { useGetTodoByIdQuery } from "./../../hooks/api/todo/useGetTodoByIdQuery";
+import { useConfirm } from "material-ui-confirm";
 
 interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
@@ -14,9 +15,12 @@ export const TodoDetail = ({
 }: TodoDetailProps): React.ReactElement => {
   const { data: todo } = useGetTodoByIdQuery(selectedTodo);
   const deleteTodoMutation = useDeleteTodoMutation();
+  const confirm = useConfirm();
 
   const handleTodoDeleteButtonClick = () => {
-    deleteTodoMutation.mutate({ todoId: todo ? todo.id : "" });
+    confirm({ title: "삭제하시겠습니까?" }).then(() => {
+      deleteTodoMutation.mutate({ todoId: todo ? todo.id : "" });
+    });
   };
 
   return (

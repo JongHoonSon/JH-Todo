@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ITodo } from "../../types/todo";
 import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutation";
 import { useGetTodoByIdQuery } from "../../hooks/api/todo/useGetTodoByIdQuery";
+import { useConfirm } from "material-ui-confirm";
 
 interface TodoEditFormProps {
   selectedTodo: ITodo | undefined;
@@ -19,18 +20,21 @@ export const TodoEditForm = ({
     todo ? todo.content : ""
   );
   const updateTodoMutation = useUpdateTodoMutation();
+  const confirm = useConfirm();
 
   const handleTodoEditFormSumbit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    updateTodoMutation.mutate({
-      todoId: selectedTodo ? selectedTodo.id : "",
-      todoTitle: newTitle,
-      todoContent: newContent,
+    confirm({ title: "수정하시겠습니까?" }).then(() => {
+      updateTodoMutation.mutate({
+        todoId: selectedTodo ? selectedTodo.id : "",
+        todoTitle: newTitle,
+        todoContent: newContent,
+      });
+      setNewTitle("");
+      setNewContent("");
+      handleTodoEditFormOpenChange(false);
     });
-    setNewTitle("");
-    setNewContent("");
-    handleTodoEditFormOpenChange(false);
   };
   return (
     <Container>

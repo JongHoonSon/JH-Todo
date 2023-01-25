@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SnackbarProvider } from "notistack";
+import { ConfirmProvider } from "material-ui-confirm";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,9 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <SnackbarProvider maxSnack={3}>
-            <Router />
+            <ConfirmProvider>
+              <Router />
+            </ConfirmProvider>
           </SnackbarProvider>
         </Provider>
         <ReactQueryDevtools initialIsOpen={false} />
