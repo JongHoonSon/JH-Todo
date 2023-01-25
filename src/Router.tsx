@@ -14,8 +14,6 @@ export const Router = () => {
         <Route path="/" element={<MainRoute />} />
         <Route element={<PublicRoute />}>
           <Route path="/auth/join" element={<JoinPage />} />
-        </Route>
-        <Route element={<PublicRoute />}>
           <Route path="/auth/login" element={<LoginPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
