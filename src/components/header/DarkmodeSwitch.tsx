@@ -24,7 +24,7 @@ export const DarkmodeSwitch = ({
   };
 
   return (
-    <>
+    <Container>
       <Switch
         id="darkmode_switch"
         color="default"
@@ -45,9 +45,15 @@ export const DarkmodeSwitch = ({
           </>
         )}
       </Label>
-    </>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const CustomDarkModeIcon = styled(DarkModeIcon)`
   color: ${(props) => props.theme.themeColor};
