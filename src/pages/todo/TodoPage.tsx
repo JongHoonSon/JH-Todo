@@ -15,17 +15,17 @@ export const TodoPage = ({
   return (
     <>
       <Container>
-        <Section>
+        <LeftSection>
           <TodoListContainer />
           <TodoCreateForm />
-        </Section>
-        <Section>
+        </LeftSection>
+        <RightSection>
           {isTodoEditFormOpen ? (
             <TodoEditFormContainer />
           ) : (
             <TodoDetailContainer />
           )}
-        </Section>
+        </RightSection>
       </Container>
     </>
   );
@@ -38,10 +38,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: peru;
 `;
 
-const Section = styled.div`
-  width: 50%;
+const LeftSection = styled.div`
+  width: 400px;
+  height: 100%;
+`;
+
+const RightSection = styled.div`
+  width: 600px;
   height: 100%;
 `;

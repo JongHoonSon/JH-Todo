@@ -17,8 +17,7 @@ export const TodoList = ({
   return (
     <Container>
       <TodoListHeader>
-        <span>제목</span>
-        <span>내용</span>
+        <span>할 일 목록</span>
       </TodoListHeader>
       <TodoListContainer>
         {todos ? (
@@ -41,29 +40,42 @@ export const TodoList = ({
 };
 
 const Container = styled.div`
-  width: 100%;
-  height: calc(100% - 100px);
-  margin: auto;
+  width: 90%;
+  height: 550px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background-color: orange;
+  margin: 20px;
+  padding: 20px;
+  background-color: ${(props) => props.theme.bgColor_primary};
+  border: 1px solid ${(props) => props.theme.borderColor};
+  border-radius: 20px;
 `;
 
 const TodoListHeader = styled.div`
   width: 100%;
-  height: 90%;
+  height: 10%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: ${(props) => props.theme.textColor_primary};
+
+  margin-bottom: 10px;
 `;
 
 const TodoListContainer = styled.div`
   width: 100%;
   height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;

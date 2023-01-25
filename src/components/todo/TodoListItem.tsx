@@ -13,7 +13,6 @@ export const TodoListItem = ({
   return (
     <Container onClick={onClick}>
       <span>{todo.title}</span>
-      <span>{todo.content}</span>
     </Container>
   );
 };
@@ -21,13 +20,19 @@ export const TodoListItem = ({
 const Container = styled.div`
   width: 100%;
   height: 50px;
-  background-color: yellow;
-  border: 1px solid black;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 
-  :hover {
-    opacity: 0.5;
+  font-size: 14px;
+  background-color: ${(props) => props.theme.bgColor_tertiary};
+  color: ${(props) => props.theme.textColor_secondary};
+  border: 1px solid ${(props) => props.theme.borderColor};
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
