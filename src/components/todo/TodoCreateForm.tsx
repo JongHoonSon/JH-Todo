@@ -42,7 +42,7 @@ export const TodoCreateForm = (): React.ReactElement => {
 
 const Container = styled.div`
   width: 90%;
-  height: 250px;
+  height: 220px;
   margin: 20px;
   padding: 20px;
   display: flex;
@@ -90,5 +90,5 @@ const Label = styled.span`
 const Input = styled.input`
   color: ${(props) => props.theme.textColor_secondary};
   padding: 5px 10px;
-  height: 30px;
+  height: 25px;
 `;

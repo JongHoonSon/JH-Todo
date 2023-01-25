@@ -42,10 +42,18 @@ const Container = styled.div`
 
 const LeftSection = styled.div`
   width: 400px;
-  height: 100%;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const RightSection = styled.div`
-  width: 600px;
-  height: 100%;
+  width: 1000px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;

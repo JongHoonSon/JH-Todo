@@ -41,7 +41,7 @@ export const TodoList = ({
 
 const Container = styled.div`
   width: 90%;
-  height: 550px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

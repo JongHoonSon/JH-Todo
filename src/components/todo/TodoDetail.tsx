@@ -3,6 +3,7 @@ import { ITodo } from "../../types/todo";
 import { useDeleteTodoMutation } from "../../hooks/api/todo/useDeleteTodoMutation";
 import { useGetTodoByIdQuery } from "./../../hooks/api/todo/useGetTodoByIdQuery";
 import { useConfirm } from "material-ui-confirm";
+import { Button } from "../common/Button";
 
 interface TodoDetailProps {
   selectedTodo: ITodo | undefined;
@@ -29,20 +30,20 @@ export const TodoDetail = ({
         "empty"
       ) : (
         <>
+          <TodoDetailHeader>할 일 상세 정보</TodoDetailHeader>
           <TodoDetailContainer>
             <span>{`제목 : ${todo.title}`}</span>
             <span>{`내용 : ${todo.content}`}</span>
-            <span>{`id : ${todo.id}`}</span>
-            <span>{`작성일 : ${todo.createdAt}`}</span>
-            <span>{`수정일 : ${todo.updatedAt}`}</span>
+            <span>{`작성일자 : ${todo.createdAt}`}</span>
+            <span>{`수정일자 : ${todo.updatedAt}`}</span>
           </TodoDetailContainer>
 
-          <TodoOptionButton onClick={() => handleTodoEditFormOpenChange(true)}>
-            수정
-          </TodoOptionButton>
-          <TodoOptionButton onClick={handleTodoDeleteButtonClick}>
-            삭제
-          </TodoOptionButton>
+          <TodoOptionContainer>
+            <Button onClick={() => handleTodoEditFormOpenChange(true)}>
+              수정
+            </Button>
+            <Button onClick={handleTodoDeleteButtonClick}>삭제</Button>
+          </TodoOptionContainer>
         </>
       )}
     </Container>
@@ -50,27 +51,48 @@ export const TodoDetail = ({
 };
 
 const Container = styled.div`
-  width: 100%;
+  width: 90%;
   height: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  background-color: ${(props) => props.theme.bgColor_primary};
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid ${(props) => props.theme.borderColor};
+  border-radius: 20px;
+`;
+
+const TodoDetailHeader = styled.div`
+  width: 90%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: ${(props) => props.theme.textColor_primary};
 `;
 
 const TodoDetailContainer = styled.div`
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  margin: 100px 0px;
   align-items: center;
+
+  font-size: 16px;
+  color: ${(props) => props.theme.textColor_secondary};
 `;
 
-const TodoOptionButton = styled.button`
-  width: 50px;
-  height: 50px;
-  color: ${(props) => props.theme.bgColor};
+const TodoOptionContainer = styled.div`
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
