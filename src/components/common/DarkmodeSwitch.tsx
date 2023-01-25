@@ -1,29 +1,29 @@
 import Switch from "@mui/material/Switch";
-import { setThemeMode, themeModeType } from "./../../styles/theme";
+import { setCurrentThemeMode, themeModeType } from "./../../styles/theme";
 
 interface DarkmodeSwitchProps {
-  themeMode: themeModeType;
+  currentThemeMode: themeModeType;
   handleCurrentThemeChange: (newThemeMode: themeModeType) => void;
 }
 
 export const DarkmodeSwitch = ({
-  themeMode,
+  currentThemeMode,
   handleCurrentThemeChange,
 }: DarkmodeSwitchProps) => {
   const handleThemeChange = () => {
-    if (themeMode === "darkTheme") {
+    if (currentThemeMode === "darkTheme") {
       handleCurrentThemeChange("lightTheme");
-      setThemeMode("lightTheme");
+      setCurrentThemeMode("lightTheme");
     } else {
       handleCurrentThemeChange("darkTheme");
-      setThemeMode("darkTheme");
+      setCurrentThemeMode("darkTheme");
     }
   };
 
   return (
     <Switch
       color="default"
-      checked={themeMode === "darkTheme" ? true : false}
+      checked={currentThemeMode === "darkTheme" ? true : false}
       onChange={handleThemeChange}
     />
   );

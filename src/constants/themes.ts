@@ -1,9 +1,9 @@
-interface IThemes {
+interface IThemeModes {
   LIGHT_THEME: "lightTheme";
   DARK_THEME: "darkTheme";
 }
 
-export const themes: IThemes = {
+export const themeModes: IThemeModes = {
   LIGHT_THEME: "lightTheme",
   DARK_THEME: "darkTheme",
 };

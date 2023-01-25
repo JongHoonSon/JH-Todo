@@ -13,8 +13,8 @@ import { getCurrentTheme } from "./styles/theme";
 const queryClient = new QueryClient();
 
 function App() {
-  const { themeMode } = useAppSelector((state) => state.theme);
-  const currentTheme = getCurrentTheme(themeMode);
+  const { currentThemeMode } = useAppSelector((state) => state.theme);
+  const currentTheme = getCurrentTheme(currentThemeMode);
   return (
     <AppLayout>
       <GlobalStyles />

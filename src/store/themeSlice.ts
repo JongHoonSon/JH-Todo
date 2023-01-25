@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getThemeMode, themeModeType } from "./../styles/theme";
+import { getCurrentThemeMode, themeModeType } from "./../styles/theme";
 
 interface themeState {
-  themeMode: themeModeType;
+  currentThemeMode: themeModeType;
 }
 
 const themeInitialState: themeState = {
-  themeMode: getThemeMode(),
+  currentThemeMode: getCurrentThemeMode(),
 };
 
 export const themeSlice = createSlice({
@@ -14,7 +14,7 @@ export const themeSlice = createSlice({
   initialState: themeInitialState,
   reducers: {
     changeThemeMode(state, action) {
-      return { ...state, themeMode: action.payload };
+      return { ...state, currentThemeMode: action.payload };
     },
   },
 });

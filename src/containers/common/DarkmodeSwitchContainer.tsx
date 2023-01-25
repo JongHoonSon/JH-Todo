@@ -4,7 +4,7 @@ import { themeModeType } from "../../styles/theme";
 import { DarkmodeSwitch } from "./../../components/common/DarkmodeSwitch";
 
 export const DarkmodeSwitchContainer = () => {
-  const { themeMode } = useAppSelector((state) => state.theme);
+  const { currentThemeMode } = useAppSelector((state) => state.theme);
 
   const dispatch = useAppDispatch();
   const { changeThemeMode } = themeSlice.actions;
@@ -14,7 +14,7 @@ export const DarkmodeSwitchContainer = () => {
   };
   return (
     <DarkmodeSwitch
-      themeMode={themeMode}
+      currentThemeMode={currentThemeMode}
       handleCurrentThemeChange={handleCurrentThemeChange}
     />
   );

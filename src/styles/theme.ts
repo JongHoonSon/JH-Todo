@@ -10,44 +10,44 @@ const darkTheme: ITheme = {
   textColor: "white",
 };
 
-interface IThemes {
+interface IThemeModes {
   LIGHT_THEME: "lightTheme";
   DARK_THEME: "darkTheme";
 }
 
-export const themes: IThemes = {
+export const themeModes: IThemeModes = {
   LIGHT_THEME: "lightTheme",
   DARK_THEME: "darkTheme",
 };
 
 export type themeModeType = "lightTheme" | "darkTheme";
 
-export const getThemeMode = (): themeModeType => {
+export const getCurrentThemeMode = (): themeModeType => {
   const themeMode: string | null = window.localStorage.getItem("theme");
 
   if (themeMode) {
     if (themeMode === "lightTheme") {
-      return themes.LIGHT_THEME;
+      return themeModes.LIGHT_THEME;
     } else {
-      return themes.DARK_THEME;
+      return themeModes.DARK_THEME;
     }
   } else {
-    setThemeMode(themes.LIGHT_THEME);
-    return themes.LIGHT_THEME;
+    setCurrentThemeMode(themeModes.LIGHT_THEME);
+    return themeModes.LIGHT_THEME;
   }
 };
 
-export const setThemeMode = (newThemeMode: themeModeType): void => {
+export const setCurrentThemeMode = (newThemeMode: themeModeType): void => {
   if (
-    newThemeMode === themes.LIGHT_THEME ||
-    newThemeMode === themes.DARK_THEME
+    newThemeMode === themeModes.LIGHT_THEME ||
+    newThemeMode === themeModes.DARK_THEME
   ) {
     window.localStorage.setItem("theme", newThemeMode);
   }
 };
 
 export const getCurrentTheme = (themeMode: themeModeType): ITheme => {
-  if (themeMode === themes.DARK_THEME) {
+  if (themeMode === themeModes.DARK_THEME) {
     return darkTheme;
   } else {
     return lightTheme;
