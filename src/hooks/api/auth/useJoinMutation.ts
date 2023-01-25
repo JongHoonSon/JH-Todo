@@ -4,7 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useCustomSnackbar } from "./../../common/useCustomSnackbar";
 import { IMutationError } from "./../../../types/mutationType";
 
-export const useJoinMutation = () => {
+interface IuseJoinMutation {
+  handleJoinErrorChange: (boolean: boolean) => void;
+}
+
+export const useJoinMutation = ({
+  handleJoinErrorChange,
+}: IuseJoinMutation) => {
   const navigate = useNavigate();
   const { customSnackbar } = useCustomSnackbar();
 
@@ -21,6 +27,7 @@ export const useJoinMutation = () => {
         isSuccess: false,
         message: `${error.response.data.details}`,
       });
+      handleJoinErrorChange(true);
     },
   });
 };

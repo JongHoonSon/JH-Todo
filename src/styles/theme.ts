@@ -3,22 +3,24 @@ import { colors } from "./colors";
 
 const lightTheme: ITheme = {
   bgColor_primary: colors.CYAN9,
-  bgColor_secondary: colors.CYAN8,
-  bgColor_tertiary: colors.CYAN7,
+  bgColor_secondary: colors.CYAN7,
+  bgColor_tertiary: colors.CYAN5,
   textColor_primary: colors.GRAY0,
-  textColor_secondary: colors.GRAY1,
-  textColor_tertiary: colors.GRAY2,
+  textColor_secondary: colors.GRAY2,
+  textColor_tertiary: colors.GRAY4,
   borderColor: colors.GRAY2,
+  themeColor: colors.CYAN3,
 };
 
 const darkTheme: ITheme = {
   bgColor_primary: colors.GRAY9,
-  bgColor_secondary: colors.GRAY8,
-  bgColor_tertiary: colors.GRAY7,
-  textColor_primary: colors.CYAN0,
-  textColor_secondary: colors.CYAN1,
-  textColor_tertiary: colors.GRAY7,
+  bgColor_secondary: colors.GRAY7,
+  bgColor_tertiary: colors.GRAY5,
+  textColor_primary: colors.CYAN5,
+  textColor_secondary: colors.CYAN4,
+  textColor_tertiary: colors.CYAN3,
   borderColor: colors.GRAY2,
+  themeColor: colors.GRAY6,
 };
 
 interface IThemeModes {

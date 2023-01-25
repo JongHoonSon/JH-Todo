@@ -9,5 +9,6 @@ declare module "styled-components" {
     bgColor_secondary: string;
     bgColor_tertiary: string;
     borderColor: string;
+    themeColor: string;
   }
 }

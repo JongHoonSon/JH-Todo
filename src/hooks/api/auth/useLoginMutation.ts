@@ -7,6 +7,7 @@ import { IMutationError } from "../../../types/mutationType";
 interface IuseLoginMutation {
   handleLoginErrorChange: (boolean: boolean) => void;
 }
+
 export const useLoginMutation = ({
   handleLoginErrorChange,
 }: IuseLoginMutation) => {

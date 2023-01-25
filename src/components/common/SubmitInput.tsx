@@ -15,7 +15,7 @@ const CustomSubmitInput = styled.input`
   justify-content: center;
   align-items: center;
   color: ${(props) => props.theme.textColor_primary};
-  background-color: ${(props) => props.theme.bgColor_tertiary};
+  background-color: ${(props) => props.theme.bgColor_secondary};
   border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 10px;
   margin: 10px 20px;

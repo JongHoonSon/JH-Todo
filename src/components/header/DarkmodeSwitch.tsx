@@ -50,12 +50,12 @@ export const DarkmodeSwitch = ({
 };
 
 const CustomDarkModeIcon = styled(DarkModeIcon)`
-  color: ${(props) => props.theme.textColor_tertiary};
+  color: ${(props) => props.theme.themeColor};
   margin-right: 5px;
 `;
 
 const CustomLightModeIcon = styled(LightModeIcon)`
-  color: ${(props) => props.theme.textColor_tertiary};
+  color: ${(props) => props.theme.themeColor};
   margin-right: 5px;
 `;
 
@@ -66,7 +66,7 @@ const Label = styled.label`
   font-size: 14px;
   font-weight: 600;
 
-  color: ${(props) => props.theme.textColor_tertiary};
+  color: ${(props) => props.theme.themeColor};
 
   cursor: pointer;
 `;
