@@ -1,13 +1,24 @@
 import { ITheme } from "styled-components";
+import { colors } from "./colors";
 
 const lightTheme: ITheme = {
-  bgColor: "white",
-  textColor: "black",
+  bgColor_primary: colors.CYAN9,
+  bgColor_secondary: colors.CYAN8,
+  bgColor_tertiary: colors.CYAN7,
+  textColor_primary: colors.GRAY9,
+  textColor_secondary: colors.GRAY8,
+  textColor_tertiary: colors.GRAY7,
+  borderColor: colors.GRAY3,
 };
 
 const darkTheme: ITheme = {
-  bgColor: "black",
-  textColor: "white",
+  bgColor_primary: colors.GRAY9,
+  bgColor_secondary: colors.GRAY8,
+  bgColor_tertiary: colors.GRAY7,
+  textColor_primary: colors.CYAN9,
+  textColor_secondary: colors.CYAN8,
+  textColor_tertiary: colors.CYAN7,
+  borderColor: colors.CYAN3,
 };
 
 interface IThemeModes {
