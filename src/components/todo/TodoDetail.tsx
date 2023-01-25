@@ -72,4 +72,5 @@ const TodoDetailContainer = styled.div`
 const TodoOptionButton = styled.button`
   width: 50px;
   height: 50px;
+  color: ${(props) => props.theme.bgColor};
 `;

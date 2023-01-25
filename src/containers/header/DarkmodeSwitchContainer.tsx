@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { themeSlice } from "../../store/themeSlice";
 import { themeModeType } from "../../styles/theme";
-import { DarkmodeSwitch } from "./../../components/common/DarkmodeSwitch";
+import { DarkmodeSwitch } from "../../components/header/DarkmodeSwitch";
 
 export const DarkmodeSwitchContainer = () => {
   const { currentThemeMode } = useAppSelector((state) => state.theme);

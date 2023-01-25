@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { TodoCreateForm } from "../../components/todo/TodoCreateForm";
 import { TodoDetailContainer } from "./../../containers/todo/TodoDetailContainer";
-import { Header } from "../../components/common/Header";
+import { Header } from "../../components/header/Header";
 import { TodoEditFormContainer } from "./../../containers/todo/TodoEditFormContainer";
 import { TodoListContainer } from "./../../containers/todo/TodoListContainer";
 

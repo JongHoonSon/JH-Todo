@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { checkUserLoggedIn } from "../../utils/checkUserLoggedIn";
 import styled from "styled-components";
-import { DarkmodeSwitchContainer } from "../../containers/common/DarkmodeSwitchContainer";
+import { DarkmodeSwitchContainer } from "../../containers/header/DarkmodeSwitchContainer";
+import { Button } from "./../common/Button";
 
 export const Header = (): React.ReactElement => {
   const navigate = useNavigate();
@@ -15,10 +16,18 @@ export const Header = (): React.ReactElement => {
     <Container>
       <DarkmodeSwitchContainer />
       {isUserLoggedIn && (
-        <button onClick={handleLogoutButtonClick}>로그아웃</button>
+        <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
       )}
     </Container>
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 10px 30px;
+
+  background-color: ${(props) => props.theme.bgColor_primary};
+`;

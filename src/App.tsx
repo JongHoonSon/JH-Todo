@@ -6,7 +6,7 @@ import { useAppSelector } from "./store/store";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SnackbarProvider } from "notistack";
 import { ConfirmProvider } from "material-ui-confirm";
-import { Header } from "./components/common/Header";
+import { Header } from "./components/header/Header";
 import { BrowserRouter } from "react-router-dom";
 import { getCurrentTheme } from "./styles/theme";
 
