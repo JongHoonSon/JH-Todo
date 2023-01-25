@@ -16,22 +16,22 @@ function App() {
   const { currentThemeMode } = useAppSelector((state) => state.theme);
   const currentTheme = getCurrentTheme(currentThemeMode);
   return (
-    <AppLayout>
-      <GlobalStyles />
-      <QueryClientProvider client={queryClient}>
-        <SnackbarProvider maxSnack={3}>
-          <ConfirmProvider>
-            <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={currentTheme}>
+      <AppLayout>
+        <GlobalStyles />
+        <QueryClientProvider client={queryClient}>
+          <SnackbarProvider maxSnack={3}>
+            <ConfirmProvider>
               <BrowserRouter>
                 <Header />
                 <Router />
               </BrowserRouter>
-            </ThemeProvider>
-          </ConfirmProvider>
-        </SnackbarProvider>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </AppLayout>
+            </ConfirmProvider>
+          </SnackbarProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </AppLayout>
+    </ThemeProvider>
   );
 }
 
@@ -42,7 +42,7 @@ const AppLayout = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: aliceblue;
+  background-color: ${(props) => props.theme.bgColor_secondary};
 `;
 
 export default App;
