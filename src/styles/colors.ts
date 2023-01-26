@@ -19,4 +19,5 @@ export const colors = {
   GRAY2: "#e9ecef",
   GRAY1: "#f1f3f5",
   GRAY0: "#f8f9fa",
+  ERROR: "#ff6b6b;",
 };

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { colors } from "./../../styles/colors";
 
 export const FormContainer = styled.div`
   width: 350px;
@@ -65,7 +66,7 @@ export const InputError = styled.span`
   width: 220px;
   height: 20px;
   font-size: 12px;
-  color: #ff6b6b;
+  color: ${colors.ERROR};
   margin-bottom: 10px;
 `;
 
@@ -76,7 +77,7 @@ export const FormError = styled.div`
   width: 220px;
   height: 20px;
   font-size: 12px;
-  color: #ff6b6b;
+  color: ${colors.ERROR};
   margin-bottom: 10px;
 `;
 
