@@ -51,7 +51,7 @@ export const setThemeModeToLocalStorage = (
   }
 };
 
-export const getCurrentTheme = (themeMode: themeModeType): ITheme => {
+export const getThemeObject = (themeMode: themeModeType): ITheme => {
   if (themeMode === themeModes.DARK_THEME) {
     return darkTheme;
   } else {

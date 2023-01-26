@@ -1,5 +1,5 @@
 import Switch from "@mui/material/Switch";
-import { setCurrentThemeMode } from "../../styles/themeStyles";
+import { setThemeModeToLocalStorage } from "../../styles/themeStyles";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import styled from "styled-components";
@@ -17,10 +17,10 @@ export const DarkmodeSwitch = ({
   const handleThemeChange = () => {
     if (currentThemeMode === "darkTheme") {
       handleCurrentThemeChange("lightTheme");
-      setCurrentThemeMode("lightTheme");
+      setThemeModeToLocalStorage("lightTheme");
     } else {
       handleCurrentThemeChange("darkTheme");
-      setCurrentThemeMode("darkTheme");
+      setThemeModeToLocalStorage("darkTheme");
     }
   };
 

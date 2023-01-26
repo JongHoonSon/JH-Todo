@@ -8,13 +8,13 @@ import { SnackbarProvider } from "notistack";
 import { ConfirmProvider } from "material-ui-confirm";
 import { Header } from "./components/header/Header";
 import { BrowserRouter } from "react-router-dom";
-import { getCurrentTheme } from "./styles/themeStyles";
+import { getThemeObject } from "./styles/themeStyles";
 
 const queryClient = new QueryClient();
 
 function App() {
   const { currentThemeMode } = useAppSelector((state) => state.theme);
-  const currentTheme = getCurrentTheme(currentThemeMode);
+  const currentTheme = getThemeObject(currentThemeMode);
   return (
     <ThemeProvider theme={currentTheme}>
       <AppLayout>
