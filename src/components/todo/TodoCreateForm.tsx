@@ -35,6 +35,10 @@ export const TodoCreateForm = (): React.ReactElement => {
             })}
           />
         </InputWrapper>
+        <InputError>
+          <span>{errors.title && errors.title.message}</span>
+        </InputError>
+
         <InputWrapper>
           <Label>내용</Label>
           <Input
@@ -44,9 +48,9 @@ export const TodoCreateForm = (): React.ReactElement => {
           />
         </InputWrapper>
         <InputError>
-          <span>{errors.title && errors.title.message}</span>
           <span>{errors.content && errors.content.message}</span>
         </InputError>
+
         <SubmitInput type="submit" value="추가" />
       </TodoForm>
     </Container>
@@ -104,6 +108,9 @@ const InputError = styled.div`
 
   color: ${colors.ERROR};
   font-size: 12px;
+
+  height: 20px;
+  margin: 5px 0px;
 `;
 
 const Label = styled.span`
