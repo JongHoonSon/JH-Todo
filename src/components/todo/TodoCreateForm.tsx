@@ -121,4 +121,7 @@ const Input = styled.input`
   width: 75%;
   padding: 5px 10px;
   height: 25px;
+  color: white;
+  background-color: ${(props) => props.theme.bgColor_tertiary};
+  border: 2px solid ${(props) => props.theme.borderColor};
 `;

@@ -48,7 +48,7 @@ export const Input = styled.input`
   height: 30px;
   padding: 5px 10px;
 
-  color: ${(props) => props.theme.textColor_primary};
+  color: white;
   background-color: ${(props) => props.theme.bgColor_tertiary};
   border: 2px solid ${(props) => props.theme.borderColor};
 `;

@@ -135,6 +135,9 @@ const Input = styled.input`
   width: 300px;
   height: 40px;
   padding: 5px 10px;
+  color: white;
+  background-color: ${(props) => props.theme.bgColor_tertiary};
+  border: 2px solid ${(props) => props.theme.borderColor};
 `;
 
 const InputError = styled.div`
