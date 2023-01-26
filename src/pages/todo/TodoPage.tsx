@@ -3,6 +3,7 @@ import { TodoCreateForm } from "../../components/todo/TodoCreateForm";
 import { TodoDetailContainer } from "./../../containers/todo/TodoDetailContainer";
 import { TodoEditFormContainer } from "./../../containers/todo/TodoEditFormContainer";
 import { TodoListContainer } from "./../../containers/todo/TodoListContainer";
+import { Helmet } from "react-helmet";
 
 interface TodoPageProps {
   isTodoEditFormOpen: boolean;
@@ -13,6 +14,9 @@ export const TodoPage = ({
 }: TodoPageProps): React.ReactElement => {
   return (
     <>
+      <Helmet>
+        <title>JH Todo | 할 일 관리</title>
+      </Helmet>
       <Container>
         <LeftSection>
           <TodoListContainer />
