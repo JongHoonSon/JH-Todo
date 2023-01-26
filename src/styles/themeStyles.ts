@@ -1,4 +1,6 @@
 import { ITheme } from "styled-components";
+import { themeModes } from "../constants/themeConstants";
+import { themeModeType } from "../types/themeTypes";
 import { colors } from "./colors";
 
 const lightTheme: ITheme = {
@@ -22,18 +24,6 @@ const darkTheme: ITheme = {
   borderColor: colors.GRAY2,
   themeColor: colors.GRAY6,
 };
-
-interface IThemeModes {
-  LIGHT_THEME: "lightTheme";
-  DARK_THEME: "darkTheme";
-}
-
-export const themeModes: IThemeModes = {
-  LIGHT_THEME: "lightTheme",
-  DARK_THEME: "darkTheme",
-};
-
-export type themeModeType = "lightTheme" | "darkTheme";
 
 export const getCurrentThemeMode = (): themeModeType => {
   const themeMode: string | null = window.localStorage.getItem("theme");

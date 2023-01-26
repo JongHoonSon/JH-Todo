@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { ITodo } from "../../types/todo";
+import { ITodo } from "../../types/todoTypes";
 import { useUpdateTodoMutation } from "./../../hooks/api/todo/useUpdateTodoMutation";
 import { useGetTodoByIdQuery } from "../../hooks/api/todo/useGetTodoByIdQuery";
 import { useConfirm } from "material-ui-confirm";

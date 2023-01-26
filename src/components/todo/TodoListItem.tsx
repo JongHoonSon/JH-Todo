@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ITodo } from "./../../types/todo";
+import { ITodo } from "../../types/todoTypes";
 
 interface TodoListItemProps {
   todo: ITodo;

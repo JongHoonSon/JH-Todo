@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useGetTodosQuery } from "../../hooks/api/todo/useGetTodosQuery";
-import { ITodo } from "../../types/todo";
+import { ITodo } from "../../types/todoTypes";
 import { TodoListItem } from "./TodoListItem";
 
 interface TodoListProps {

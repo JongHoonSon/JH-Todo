@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createTodo } from "../../../api/todo/createTodo";
 import { useCustomSnackbar } from "../../common/useCustomSnackbar";
-import { IMutationError } from "./../../../types/mutationType";
+import { IMutationError } from "../../../types/mutationTypes";
 
 export const useCreateTodoMutation = () => {
   const queryClient = useQueryClient();

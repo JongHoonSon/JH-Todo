@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { ITodo } from "../../../types/todo";
+import { ITodo } from "../../../types/todoTypes";
 import { getTodos } from "../../../api/todo/getTodos";
 
 export const useGetTodosQuery = () => {

@@ -8,7 +8,7 @@ import { SnackbarProvider } from "notistack";
 import { ConfirmProvider } from "material-ui-confirm";
 import { Header } from "./components/header/Header";
 import { BrowserRouter } from "react-router-dom";
-import { getCurrentTheme } from "./styles/theme";
+import { getCurrentTheme } from "./styles/themeStyles";
 
 const queryClient = new QueryClient();
 

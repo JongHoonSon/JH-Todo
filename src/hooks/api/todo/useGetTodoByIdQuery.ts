@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getTodoById } from "../../../api/todo/getTodoById";
-import { ITodo } from "./../../../types/todo";
+import { ITodo } from "../../../types/todoTypes";
 
 export const useGetTodoByIdQuery = (selectedTodo: ITodo | undefined) => {
   return useQuery<ITodo | undefined>(

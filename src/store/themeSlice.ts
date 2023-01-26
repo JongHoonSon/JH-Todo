@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCurrentThemeMode, themeModeType } from "./../styles/theme";
+import { themeModeType } from "../types/themeTypes";
+import { getCurrentThemeMode } from "../styles/themeStyles";
 
 interface themeState {
   currentThemeMode: themeModeType;

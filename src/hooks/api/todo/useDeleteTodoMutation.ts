@@ -3,7 +3,7 @@ import { useAppDispatch } from "../../../store/store";
 import { deleteTodo } from "../../../api/todo/deleteTodo";
 import { todoSlice } from "./../../../store/todoSlice";
 import { useCustomSnackbar } from "./../../common/useCustomSnackbar";
-import { IMutationError } from "./../../../types/mutationType";
+import { IMutationError } from "../../../types/mutationTypes";
 
 export const useDeleteTodoMutation = () => {
   const queryClient = useQueryClient();

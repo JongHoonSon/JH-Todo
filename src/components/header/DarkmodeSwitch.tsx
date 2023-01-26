@@ -1,8 +1,9 @@
 import Switch from "@mui/material/Switch";
-import { setCurrentThemeMode, themeModeType } from "../../styles/theme";
+import { setCurrentThemeMode } from "../../styles/themeStyles";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import styled from "styled-components";
+import { themeModeType } from "../../types/themeTypes";
 
 interface DarkmodeSwitchProps {
   currentThemeMode: themeModeType;

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ITodo } from "./../types/todo";
+import { ITodo } from "../types/todoTypes";
 
 interface todoState {
   selectedTodo: ITodo | undefined;

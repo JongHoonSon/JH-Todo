@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../store/store";
 import { todoSlice } from "../../store/todoSlice";
-import { ITodo } from "../../types/todo";
+import { ITodo } from "../../types/todoTypes";
 import { TodoList } from "../../components/todo/TodoList";
 
 export const TodoListContainer = () => {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ITodo } from "../../types/todo";
+import { ITodo } from "../../types/todoTypes";
 import { useDeleteTodoMutation } from "../../hooks/api/todo/useDeleteTodoMutation";
 import { useGetTodoByIdQuery } from "./../../hooks/api/todo/useGetTodoByIdQuery";
 import { useConfirm } from "material-ui-confirm";

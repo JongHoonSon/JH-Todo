@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { join } from "../../../api/auth/join";
 import { useNavigate } from "react-router-dom";
 import { useCustomSnackbar } from "./../../common/useCustomSnackbar";
-import { IMutationError } from "./../../../types/mutationType";
+import { IMutationError } from "../../../types/mutationTypes";
 
 interface IuseJoinMutation {
   handleJoinErrorChange: (boolean: boolean) => void;
