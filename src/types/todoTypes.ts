@@ -5,3 +5,8 @@ export interface ITodo {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface TodoFormInputs {
+  title: string;
+  content: string;
+}

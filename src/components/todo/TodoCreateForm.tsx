@@ -1,39 +1,52 @@
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { useState } from "react";
 import { useCreateTodoMutation } from "../../hooks/api/todo/useCreateTodoMutation";
+import { TodoFormInputs } from "../../types/todoTypes";
 import { SubmitInput } from "../common/SubmitInput";
+import { SubmitHandler } from "react-hook-form/dist/types";
+import { colors } from "../../styles/colors";
 
 export const TodoCreateForm = (): React.ReactElement => {
-  const [todoTitle, setTodoTitle] = useState<string>("");
-  const [todoContent, setTodoContent] = useState<string>("");
+  const {
+    register,
+    formState: { errors },
+    reset,
+    handleSubmit,
+  } = useForm<TodoFormInputs>();
   const createTodoMutation = useCreateTodoMutation();
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    createTodoMutation.mutate({ todoTitle, todoContent });
-    setTodoTitle("");
-    setTodoContent("");
+  const handleFormSubmit: SubmitHandler<TodoFormInputs> = (data) => {
+    createTodoMutation.mutate({
+      todoTitle: data.title,
+      todoContent: data.content,
+    });
+    reset();
   };
 
   return (
     <Container>
       <TodoFormHeader>할 일 추가</TodoFormHeader>
-      <TodoForm onSubmit={handleFormSubmit}>
+      <TodoForm onSubmit={handleSubmit(handleFormSubmit)}>
         <InputWrapper>
           <Label>제목</Label>
           <Input
-            value={todoTitle}
-            onChange={(e) => setTodoTitle(e.target.value)}
+            {...register("title", {
+              required: "제목을 입력해 주세요.",
+            })}
           />
         </InputWrapper>
         <InputWrapper>
           <Label>내용</Label>
           <Input
-            value={todoContent}
-            onChange={(e) => setTodoContent(e.target.value)}
+            {...register("content", {
+              required: "내용을 입력해 주세요.",
+            })}
           />
         </InputWrapper>
+        <InputError>
+          <span>{errors.title && errors.title.message}</span>
+          <span>{errors.content && errors.content.message}</span>
+        </InputError>
         <SubmitInput type="submit" value="추가" />
       </TodoForm>
     </Container>
@@ -83,12 +96,22 @@ const InputWrapper = styled.div`
   align-items: center;
 `;
 
+const InputError = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+  color: ${colors.ERROR};
+  font-size: 12px;
+`;
+
 const Label = styled.span`
   color: ${(props) => props.theme.textColor_primary};
 `;
 
 const Input = styled.input`
-  color: ${(props) => props.theme.textColor_secondary};
+  width: 75%;
   padding: 5px 10px;
   height: 25px;
 `;
