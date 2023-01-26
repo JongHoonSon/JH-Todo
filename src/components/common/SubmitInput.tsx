@@ -18,7 +18,7 @@ const CustomSubmitInput = styled.input`
   background-color: ${(props) => props.theme.bgColor_secondary};
   border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 10px;
-  margin: 10px 20px;
+  margin: 0px 10px;
   padding: 5px 10px;
 
   cursor: pointer;
