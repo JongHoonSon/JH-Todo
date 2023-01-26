@@ -25,7 +25,7 @@ const darkTheme: ITheme = {
   themeColor: colors.GRAY6,
 };
 
-export const getCurrentThemeMode = (): themeModeType => {
+export const getThemeModeFromLocalStorage = (): themeModeType => {
   const savedThemeMode: string | null = window.localStorage.getItem("theme");
 
   if (savedThemeMode) {
@@ -35,12 +35,14 @@ export const getCurrentThemeMode = (): themeModeType => {
       return themeModes.DARK_THEME;
     }
   } else {
-    setCurrentThemeMode(themeModes.LIGHT_THEME);
+    setThemeModeToLocalStorage(themeModes.LIGHT_THEME);
     return themeModes.LIGHT_THEME;
   }
 };
 
-export const setCurrentThemeMode = (newThemeMode: themeModeType): void => {
+export const setThemeModeToLocalStorage = (
+  newThemeMode: themeModeType
+): void => {
   if (
     newThemeMode === themeModes.LIGHT_THEME ||
     newThemeMode === themeModes.DARK_THEME

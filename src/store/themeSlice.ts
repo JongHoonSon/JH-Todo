@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { themeModeType } from "../types/themeTypes";
-import { getCurrentThemeMode } from "../styles/themeStyles";
+import { getThemeModeFromLocalStorage } from "../styles/themeStyles";
 
 interface themeState {
   currentThemeMode: themeModeType;
 }
 
 const themeInitialState: themeState = {
-  currentThemeMode: getCurrentThemeMode(),
+  currentThemeMode: getThemeModeFromLocalStorage(),
 };
 
 export const themeSlice = createSlice({
