@@ -26,10 +26,10 @@ const darkTheme: ITheme = {
 };
 
 export const getCurrentThemeMode = (): themeModeType => {
-  const themeMode: string | null = window.localStorage.getItem("theme");
+  const savedThemeMode: string | null = window.localStorage.getItem("theme");
 
-  if (themeMode) {
-    if (themeMode === "lightTheme") {
+  if (savedThemeMode) {
+    if (savedThemeMode === "lightTheme") {
       return themeModes.LIGHT_THEME;
     } else {
       return themeModes.DARK_THEME;
