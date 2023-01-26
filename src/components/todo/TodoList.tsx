@@ -4,11 +4,13 @@ import { ITodo } from "../../types/todoTypes";
 import { TodoListItem } from "./TodoListItem";
 
 interface TodoListProps {
+  selectedTodo: ITodo | undefined;
   handleSelectedTodoChange: (newSelectedTodo: ITodo) => void;
   handleTodoEditFormOpenChange: (boolean: boolean) => void;
 }
 
 export const TodoList = ({
+  selectedTodo,
   handleSelectedTodoChange,
   handleTodoEditFormOpenChange,
 }: TodoListProps): React.ReactElement => {
@@ -25,6 +27,7 @@ export const TodoList = ({
             <TodoListItem
               key={todo.id}
               todo={todo}
+              selectedTodo={selectedTodo}
               onClick={() => {
                 handleSelectedTodoChange(todo);
                 handleTodoEditFormOpenChange(false);
