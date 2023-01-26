@@ -54,6 +54,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-right: 30px;
 `;
 
 const CustomDarkModeIcon = styled(DarkModeIcon)`
