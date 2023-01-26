@@ -7,14 +7,8 @@ interface loginProps {
 }
 
 export const login = ({ emailInputValue, passwordInputValue }: loginProps) => {
-  return axios
-    .post(LOGIN_URL, {
-      email: emailInputValue,
-      password: passwordInputValue,
-    })
-    .then((res) => {
-      console.log("res.data login");
-      console.log(res.data);
-      window.localStorage.setItem("jwt", res.data.token);
-    });
+  return axios.post(LOGIN_URL, {
+    email: emailInputValue,
+    password: passwordInputValue,
+  });
 };

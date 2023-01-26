@@ -7,19 +7,13 @@ interface createTodoProps {
 }
 
 export const createTodo = ({ todoTitle, todoContent }: createTodoProps) => {
-  return axios
-    .post(
-      CREATE_TODO_URL,
-      { title: todoTitle, content: todoContent },
-      {
-        headers: {
-          Authorization: window.localStorage.getItem("jwt"),
-        },
-      }
-    )
-    .then((res) => {
-      console.log("res.data create todo");
-      console.log(res.data);
-      return res.data.data;
-    });
+  return axios.post(
+    CREATE_TODO_URL,
+    { title: todoTitle, content: todoContent },
+    {
+      headers: {
+        Authorization: window.localStorage.getItem("jwt"),
+      },
+    }
+  );
 };

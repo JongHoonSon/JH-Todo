@@ -9,8 +9,6 @@ export const getTodos = () => {
       },
     })
     .then((res) => {
-      console.log("res.data get todos");
-      console.log(res.data);
       return res.data.data;
     });
 };

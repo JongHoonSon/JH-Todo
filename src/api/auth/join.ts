@@ -7,13 +7,8 @@ interface joinProps {
 }
 
 export const join = ({ emailInputValue, passwordInputValue }: joinProps) => {
-  return axios
-    .post(JOIN_URL, {
-      email: emailInputValue,
-      password: passwordInputValue,
-    })
-    .then((res) => {
-      console.log("res.data join");
-      console.log(res.data);
-    });
+  return axios.post(JOIN_URL, {
+    email: emailInputValue,
+    password: passwordInputValue,
+  });
 };

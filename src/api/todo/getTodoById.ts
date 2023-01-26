@@ -13,8 +13,6 @@ export const getTodoById = ({ todoId }: getTodoByIdProps) => {
       },
     })
     .then((res) => {
-      console.log("res.data get todo by id");
-      console.log(res.data);
       return res.data.data;
     });
 };
