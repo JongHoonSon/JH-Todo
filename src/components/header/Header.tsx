@@ -1,23 +1,12 @@
-import { useNavigate } from "react-router-dom";
-import { checkUserLoggedIn } from "../../utils/checkUserLoggedIn";
 import styled from "styled-components";
 import { DarkmodeSwitchContainer } from "../../containers/header/DarkmodeSwitchContainer";
-import { Button } from "./../common/Button";
+import { LogoutButton } from "./LogoutButton";
 
 export const Header = (): React.ReactElement => {
-  const navigate = useNavigate();
-  const isUserLoggedIn = checkUserLoggedIn();
-  const handleLogoutButtonClick = () => {
-    window.localStorage.removeItem("jwt");
-    navigate("/");
-  };
-
   return (
     <Container>
       <DarkmodeSwitchContainer />
-      {isUserLoggedIn && (
-        <Button onClick={handleLogoutButtonClick}>로그아웃</Button>
-      )}
+      <LogoutButton />
     </Container>
   );
 };

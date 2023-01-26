@@ -37,12 +37,12 @@ export const DarkmodeSwitch = ({
         {currentThemeMode === "darkTheme" ? (
           <>
             <CustomDarkModeIcon />
-            다크모드 ON
+            <IconName>다크모드 ON</IconName>
           </>
         ) : (
           <>
             <CustomLightModeIcon />
-            라이트모드 ON
+            <IconName>라이트모드 ON</IconName>
           </>
         )}
       </Label>
@@ -58,24 +58,24 @@ const Container = styled.div`
   margin-right: 30px;
 `;
 
-const CustomDarkModeIcon = styled(DarkModeIcon)`
-  color: ${(props) => props.theme.themeColor};
-  margin-right: 5px;
-`;
-
-const CustomLightModeIcon = styled(LightModeIcon)`
-  color: ${(props) => props.theme.themeColor};
-  margin-right: 5px;
-`;
-
 const Label = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-
   color: ${(props) => props.theme.themeColor};
 
   cursor: pointer;
+`;
+
+const CustomDarkModeIcon = styled(DarkModeIcon)`
+  margin-right: 5px;
+`;
+
+const CustomLightModeIcon = styled(LightModeIcon)`
+  margin-right: 5px;
+`;
+
+const IconName = styled.span`
+  font-size: 14px;
+  font-weight: 600;
 `;
