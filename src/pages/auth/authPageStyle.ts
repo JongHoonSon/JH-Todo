@@ -82,10 +82,23 @@ export const FormError = styled.div`
 `;
 
 export const CustomLink = styled(Link)`
-  color: ${(props) => props.theme.textColor_tertiary};
+  color: ${(props) => props.theme.textColor_primary};
   font-size: 14px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const LinkContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LinkDescription = styled.span`
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 5px;
+  font-size: 13px;
 `;

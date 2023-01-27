@@ -17,6 +17,8 @@ import {
   Input,
   InputError,
   InputWrapper,
+  LinkContainer,
+  LinkDescription,
 } from "./authPageStyle";
 
 interface JoinFormInputs {
@@ -99,7 +101,10 @@ export const JoinPage = (): React.ReactElement => {
           <SubmitInput type="submit" value="회원가입" disabled={!isValid} />
         </Form>
         {joinError && <FormError>회원가입에 실패하였습니다.</FormError>}
-        <CustomLink to="/auth/login">로그인 페이지로 이동</CustomLink>
+        <LinkContainer>
+          <LinkDescription>이미 아이디가 있으신가요?</LinkDescription>
+          <CustomLink to="/auth/login">로그인 하러 가기</CustomLink>
+        </LinkContainer>
       </FormContainer>
     </>
   );
