@@ -32,10 +32,25 @@ export const TodoDetail = ({
         <>
           <TodoDetailHeader>할 일 상세 정보</TodoDetailHeader>
           <TodoDetailContainer>
-            <span>{`제목 : ${todo.title}`}</span>
-            <span>{`내용 : ${todo.content}`}</span>
-            <span>{`작성 일자 : ${todo.createdAt.split("T", 1)}`}</span>
-            <span>{`수정 일자 : ${todo.updatedAt.split("T", 1)}`}</span>
+            <Label>제목</Label>
+            <TodoInfoWrap>
+              <TodoTitle>{todo.title}</TodoTitle>
+            </TodoInfoWrap>
+
+            <Label>내용</Label>
+            <TodoInfoWrap>
+              <TodoContent>{todo.content}</TodoContent>
+            </TodoInfoWrap>
+
+            <Label>작성 일자</Label>
+            <TodoInfoWrap>
+              <TodoCreatedAt>{todo.createdAt.split("T", 1)}</TodoCreatedAt>
+            </TodoInfoWrap>
+
+            <Label>수정 일자</Label>
+            <TodoInfoWrap>
+              <TodoUpdatedAt>{todo.updatedAt.split("T", 1)}</TodoUpdatedAt>
+            </TodoInfoWrap>
           </TodoDetailContainer>
 
           <TodoOptionContainer>
@@ -78,15 +93,55 @@ const TodoDetailHeader = styled.div`
 
 const TodoDetailContainer = styled.div`
   width: 100%;
-  height: 40%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 100px 0px;
+  margin: 10px 0px;
   align-items: center;
 
-  font-size: 20px;
   color: ${(props) => props.theme.textColor_secondary};
+`;
+
+const Label = styled.label`
+  width: 80%;
+  height: 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+`;
+
+const TodoInfoWrap = styled.div`
+  width: 80%;
+  padding: 15px;
+  border: 2px solid ${(props) => props.theme.borderColor};
+  border-radius: 10px;
+`;
+
+const TodoInfo = styled.span`
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const TodoTitle = styled(TodoInfo)``;
+
+const TodoCreatedAt = styled(TodoInfo)``;
+
+const TodoUpdatedAt = styled(TodoInfo)``;
+
+const TodoContent = styled.p`
+  height: 150px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  overflow: hidden;
+  word-break: break-all;
 `;
 
 const TodoOptionContainer = styled.div`

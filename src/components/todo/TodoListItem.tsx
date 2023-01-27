@@ -14,11 +14,11 @@ export const TodoListItem = ({
 }: TodoListItemProps): React.ReactElement => {
   return selectedTodo && selectedTodo === todo ? (
     <SelectedContainer>
-      <span>{todo.title}</span>
+      <TodoTitle>{todo.title}</TodoTitle>
     </SelectedContainer>
   ) : (
     <Container onClick={onClick}>
-      <span>{todo.title}</span>
+      <TodoTitle>{todo.title}</TodoTitle>
     </Container>
   );
 };
@@ -45,4 +45,10 @@ const Container = styled.div`
 
 const SelectedContainer = styled(Container)`
   background-color: ${(props) => props.theme.bgColor_secondary};
+`;
+
+const TodoTitle = styled.span`
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
