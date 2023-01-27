@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { colors } from "./../../styles/colors";
 
 export const FormContainer = styled.div`
-  width: 350px;
-  height: 350px;
+  width: 550px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -34,7 +34,7 @@ export const Form = styled.form`
 `;
 
 export const InputWrapper = styled.div`
-  width: 280px;
+  width: 320px;
   height: 30px;
   display: flex;
   justify-content: space-between;
@@ -54,12 +54,12 @@ export const Input = styled.input`
 `;
 
 export const ErrorWrapper = styled.div`
-  width: 280px;
+  width: 320px;
   display: flex;
 `;
 
 export const EmptySpace = styled.div`
-  width: 60px;
+  width: 100px;
 `;
 
 export const InputError = styled.span`
