@@ -1,14 +1,10 @@
 import { DELETE_TODO_BY_ID_URL } from "./../../constants/apiUrls";
-import axios from "axios";
+import { customAxios } from "./../common/customAxios";
 
 interface deleteTodoByIdProps {
   todoId: string;
 }
 
 export const deleteTodo = ({ todoId }: deleteTodoByIdProps) => {
-  return axios.delete(DELETE_TODO_BY_ID_URL(todoId), {
-    headers: {
-      Authorization: localStorage.getItem("jwt"),
-    },
-  });
+  return customAxios.delete(DELETE_TODO_BY_ID_URL(todoId));
 };

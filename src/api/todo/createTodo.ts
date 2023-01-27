@@ -1,5 +1,5 @@
-import axios from "axios";
 import { CREATE_TODO_URL } from "../../constants/apiUrls";
+import { customAxios } from "./../common/customAxios";
 
 interface createTodoProps {
   todoTitle: string;
@@ -7,13 +7,8 @@ interface createTodoProps {
 }
 
 export const createTodo = ({ todoTitle, todoContent }: createTodoProps) => {
-  return axios.post(
-    CREATE_TODO_URL,
-    { title: todoTitle, content: todoContent },
-    {
-      headers: {
-        Authorization: localStorage.getItem("jwt"),
-      },
-    }
-  );
+  return customAxios.post(CREATE_TODO_URL, {
+    title: todoTitle,
+    content: todoContent,
+  });
 };

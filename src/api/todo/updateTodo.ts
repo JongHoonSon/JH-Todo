@@ -1,5 +1,5 @@
 import { UPDATE_TODO_BY_ID_URL } from "./../../constants/apiUrls";
-import axios from "axios";
+import { customAxios } from "../common/customAxios";
 
 interface deleteTodoByIdProps {
   todoId: string;
@@ -12,13 +12,8 @@ export const updateTodo = ({
   todoTitle,
   todoContent,
 }: deleteTodoByIdProps) => {
-  return axios.put(
-    UPDATE_TODO_BY_ID_URL(todoId),
-    { title: todoTitle, content: todoContent },
-    {
-      headers: {
-        Authorization: localStorage.getItem("jwt"),
-      },
-    }
-  );
+  return customAxios.put(UPDATE_TODO_BY_ID_URL(todoId), {
+    title: todoTitle,
+    content: todoContent,
+  });
 };

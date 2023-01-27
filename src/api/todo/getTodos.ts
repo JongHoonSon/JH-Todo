@@ -1,14 +1,8 @@
-import axios from "axios";
 import { GET_TODOS_URL } from "../../constants/apiUrls";
+import { customAxios } from "./../common/customAxios";
 
 export const getTodos = () => {
-  return axios
-    .get(GET_TODOS_URL, {
-      headers: {
-        Authorization: localStorage.getItem("jwt"),
-      },
-    })
-    .then((res) => {
-      return res.data.data;
-    });
+  return customAxios.get(GET_TODOS_URL).then((res) => {
+    return res.data.data;
+  });
 };
