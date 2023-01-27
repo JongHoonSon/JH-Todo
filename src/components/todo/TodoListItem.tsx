@@ -24,11 +24,12 @@ export const TodoListItem = ({
 };
 
 const Container = styled.div`
-  width: 100%;
+  width: 90%;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
   margin-bottom: 10px;
 
   font-size: 14px;
@@ -48,6 +49,8 @@ const SelectedContainer = styled(Container)`
 `;
 
 const TodoTitle = styled.span`
+  display: block;
+  line-height: 1.5;
   width: 80%;
   overflow: hidden;
   text-overflow: ellipsis;

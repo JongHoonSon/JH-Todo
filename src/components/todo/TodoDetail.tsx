@@ -125,6 +125,7 @@ const TodoInfo = styled.span`
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.5;
 `;
 
 const TodoTitle = styled(TodoInfo)``;
@@ -142,6 +143,7 @@ const TodoContent = styled.p`
 
   overflow: hidden;
   word-break: break-all;
+  line-height: 1.5;
 `;
 
 const TodoOptionContainer = styled.div`
