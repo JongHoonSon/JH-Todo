@@ -34,8 +34,8 @@ export const TodoDetail = ({
           <TodoDetailContainer>
             <span>{`제목 : ${todo.title}`}</span>
             <span>{`내용 : ${todo.content}`}</span>
-            <span>{`작성일자 : ${todo.createdAt}`}</span>
-            <span>{`수정일자 : ${todo.updatedAt}`}</span>
+            <span>{`작성 일자 : ${todo.createdAt.split("T", 1)}`}</span>
+            <span>{`수정 일자 : ${todo.updatedAt.split("T", 1)}`}</span>
           </TodoDetailContainer>
 
           <TodoOptionContainer>
