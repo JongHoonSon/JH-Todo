@@ -12,7 +12,7 @@ export const createTodo = ({ todoTitle, todoContent }: createTodoProps) => {
     { title: todoTitle, content: todoContent },
     {
       headers: {
-        Authorization: window.localStorage.getItem("jwt"),
+        Authorization: localStorage.getItem("jwt"),
       },
     }
   );

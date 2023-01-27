@@ -9,7 +9,7 @@ export const LogoutButton = () => {
   const isUserLoggedIn = checkUserLoggedIn();
   const handleLogoutButtonClick = () => {
     confirm({ title: "로그아웃 하시겠습니까?" }).then(() => {
-      window.localStorage.removeItem("jwt");
+      localStorage.removeItem("jwt");
       navigate("/");
     });
   };

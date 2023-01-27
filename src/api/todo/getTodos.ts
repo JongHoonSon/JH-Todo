@@ -5,7 +5,7 @@ export const getTodos = () => {
   return axios
     .get(GET_TODOS_URL, {
       headers: {
-        Authorization: window.localStorage.getItem("jwt"),
+        Authorization: localStorage.getItem("jwt"),
       },
     })
     .then((res) => {

@@ -20,7 +20,7 @@ export const useLoginMutation = ({
         isSuccess: true,
         message: "로그인 성공",
       });
-      window.localStorage.setItem("jwt", data.data.token);
+      localStorage.setItem("jwt", data.data.token);
       navigate("/");
     },
     onError: (error: IMutationError) => {

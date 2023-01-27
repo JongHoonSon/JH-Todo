@@ -26,7 +26,7 @@ const darkTheme: ITheme = {
 };
 
 export const getThemeModeFromLocalStorage = (): themeModeType => {
-  const savedThemeMode: string | null = window.localStorage.getItem("theme");
+  const savedThemeMode: string | null = localStorage.getItem("theme");
 
   if (savedThemeMode) {
     if (savedThemeMode === "lightTheme") {
@@ -47,7 +47,7 @@ export const setThemeModeToLocalStorage = (
     newThemeMode === themeModes.LIGHT_THEME ||
     newThemeMode === themeModes.DARK_THEME
   ) {
-    window.localStorage.setItem("theme", newThemeMode);
+    localStorage.setItem("theme", newThemeMode);
   }
 };
 

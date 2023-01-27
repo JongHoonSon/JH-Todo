@@ -9,7 +9,7 @@ export const getTodoById = ({ todoId }: getTodoByIdProps) => {
   return axios
     .get(GET_TODO_BY_ID_URL(todoId), {
       headers: {
-        Authorization: window.localStorage.getItem("jwt"),
+        Authorization: localStorage.getItem("jwt"),
       },
     })
     .then((res) => {

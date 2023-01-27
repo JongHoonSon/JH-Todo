@@ -17,7 +17,7 @@ export const updateTodo = ({
     { title: todoTitle, content: todoContent },
     {
       headers: {
-        Authorization: window.localStorage.getItem("jwt"),
+        Authorization: localStorage.getItem("jwt"),
       },
     }
   );
