@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NODE_ENV === "development" ? "" : "/api";
+const BASE_URL = "/api";
 
 // auth
 export const JOIN_URL = `${BASE_URL}/users/create`;
