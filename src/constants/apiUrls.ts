@@ -1,8 +1,4 @@
-const BASE_URL =
-  process.env.NODE_ENV === "development" ? "" : "http://localhost:8080";
-
-console.log("BASE_URL");
-console.log(BASE_URL);
+const BASE_URL = process.env.NODE_ENV === "development" ? "" : "/api";
 
 // auth
 export const JOIN_URL = `${BASE_URL}/users/create`;
