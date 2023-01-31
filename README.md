@@ -13,6 +13,8 @@
 
 [[YOUTUBE]](https://youtu.be/qhof44HYXLw) ☚ 1분 시연 영상 보러가기
 
+[[BE]](https://github.com/JongHoonSon/wanted-pre-onboarding-challenge-fe-1-api) ☚ Backend 코드(원티드 제공) 보러가기
+
 <br>
 
 # 최종 구현 화면
