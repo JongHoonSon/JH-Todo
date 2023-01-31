@@ -237,7 +237,7 @@ wanted-pre-onboarding-challenge-fe-1
 - form에서 유저가 입력한 값에 대해 실시간으로 validation를 수행하고, 유저가 validation의 결과를 실시간으로 볼 수 있도록 구현
 - 유저가 특정 데이터를 CUD 한 경우, 서버로부터 자동으로 새로 데이터를 받아와 최신 데이터를 확인할 수 있도록 구현
 - 유저가 보낸 API 요청에 대한 결과를 Snackbar 형태로 제공
-- 유저가 발생시키고 있는 각종 Event에 대한 응답을 제공 (CSS 이용)
+- 유저가 발생시키고 있는 각종 Event(Mouse hover, 선택한 Todo 등)에 대한 응답을 제공 (CSS 이용)
 - 라이트모드/다크모드를 구현하여 유저가 원하는 theme으로 사이트를 이용할 수 있도록 구현
 - 유저가 입력한 값이 UI의 크기를 벗어나지 않도록 overflow, ellipsis 처리
 
