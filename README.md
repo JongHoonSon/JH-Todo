@@ -43,6 +43,20 @@
 
 # 설치, 환경설정 및 실행 방법
 
+## Frontend
+```
+git clone https://github.com/JongHoonSon/wanted-pre-onboarding-challenge-fe-1.git ./
+yarn
+yarn start
+```
+
+## Backend
+```
+git clone https://github.com/JongHoonSon/wanted-pre-onboarding-challenge-fe-1-api ./
+yarn
+yarn start
+```
+
 # 구현 요구 사항
 
 # 사용한 프레임워크 및 라이브러리
