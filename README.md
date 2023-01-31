@@ -5,8 +5,12 @@
 - 사용자 입장에서 좋은 UI/UX를 제공하고, 개발자 입장에서 좋은 코드 구조를 갖는 앱을 구현하는데 집중하였습니다.
 - 총 개발 기간은 약 2주입니다.
 
-배포된 서비스 주소 : https://www.jhs-todo.kro.kr/auth/login
-1분 시연 영상 : https://www.youtube.com/watch?v=qhof44HYXLw
+<br>
+
+[배포된 사이트 보러가기](https://www.jhs-todo.kro.kr/)
+
+
+[1분 시연 영상 보러가기](https://youtu.be/qhof44HYXLw)
 
 # 최종 구현 화면
 
