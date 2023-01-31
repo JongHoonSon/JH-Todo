@@ -12,6 +12,8 @@
 
 [1분 시연 영상 보러가기](https://youtu.be/qhof44HYXLw)
 
+<br>
+
 # 최종 구현 화면
 
 <table>
@@ -53,7 +55,7 @@
   
 </table>
 
-
+<br>
 
 # 설치, 환경설정 및 실행 방법
 
@@ -70,6 +72,8 @@ git clone https://github.com/JongHoonSon/wanted-pre-onboarding-challenge-fe-1-ap
 yarn
 yarn start
 ```
+
+<br>
 
 # 구현 요구 사항
 
@@ -100,7 +104,28 @@ yarn start
   - [❌] 개별 Todo를 조회 순서에 따라 페이지 뒤로가기를 통하여 조회할 수 있도록 해주세요.
 - 한 페이지 내에서 새로고침 없이 데이터가 정합성을 갖추도록 구현해주세요
 
+<br>
+
 # 사용한 프레임워크 및 라이브러리
+
+## React-Route-Dom
+- React 앱 내부에서 Page Routing 을 위해 사용
+
+## React-Hook-Form
+- 각종 form에 대해서 유저가 input을 입력할 때마다 입력 값을 validate 하기 위해 사용
+- validate 실패 시 유저에게 적절한 Feedback을 제공하기 위해 사용
+
+## React-Query
+- API 요청의 성공/실패 여부에 따른 처리 구현하기 위해 사용
+- API 요청 성공 시 갱신이 필요한 데이터를 재요청하기 위해 사용
+
+## Reduxjs-Toolkit
+- 유저가 선택한 Todo, Todo 수정 중인지의 여부, 유저가 선택한 라이트/다크모드 등 Front 단에서 전역 상태를 관리하기 위해 사용
+
+## Notistack
+- 유저에게 Snackbar 형태로 알림을 제공하기 위해 사용
+
+<br>
 
 # 폴더 구조
 
@@ -197,6 +222,10 @@ wanted-pre-onboarding-challenge-fe-1
 
 ```
 
+<br>
+
 # 과제 진행 시 주안점
+
+<br>
 
 # 한계점 및 개선 사항
