@@ -107,6 +107,8 @@ yarn start
   - [❌] 새로고침을 했을 때 현재 상태가 유지되어야 합니다.
   - [❌] 개별 Todo를 조회 순서에 따라 페이지 뒤로가기를 통하여 조회할 수 있도록 해주세요.
 
+  (구현하지 못한(않은) 이유 [바로가기](https://github.com/JongHoonSon/wanted-pre-onboarding-challenge-fe-1/blob/master/README.md#todo-%EC%83%81%EC%84%B8-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A5%BC-%EA%B5%AC%ED%98%84-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C%EC%9D%98-%EB%A1%9C%EC%A7%81-%EA%B2%80%EC%A6%9D-%EB%B6%80%EC%A1%B1))
+
 - 한 페이지 내에서 새로고침 없이 데이터가 정합성을 갖추도록 구현해주세요
   - [✔️] 수정되는 Todo의 내용이 목록에서도 실시간으로 반영되어야 합니다
 
