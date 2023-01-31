@@ -113,7 +113,7 @@ yarn start
 
 ## React-Hook-Form
 - 각종 form에 대해서 유저가 input을 입력할 때마다 입력 값을 validation 하기 위해 사용
-- validate 실패 시 유저에게 적절한 Feedback을 제공하기 위해 사용
+- validation 실패 시 유저에게 적절한 Feedback을 제공하기 위해 사용
 
 ## React-Query
 - API 요청의 성공/실패 여부에 따른 처리 구현하기 위해 사용
