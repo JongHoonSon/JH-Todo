@@ -7,10 +7,10 @@
 
 <br>
 
-[[JH TODO] 배포된 사이트 보러가기](https://www.jhs-todo.kro.kr/)
+[[JH-TODO]](https://www.jhs-todo.kro.kr/) ☚ 배포된 사이트 보러가기
 
 
-[[YOUTUBE] 1분 시연 영상 보러가기](https://youtu.be/qhof44HYXLw)
+[[YOUTUBE]](https://youtu.be/qhof44HYXLw) ☚ 1분 시연 영상 보러가기
 
 <br>
 
