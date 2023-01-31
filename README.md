@@ -112,7 +112,7 @@ yarn start
 - React 앱 내부에서 Page Routing 을 위해 사용
 
 ## React-Hook-Form
-- 각종 form에 대해서 유저가 input을 입력할 때마다 입력 값을 validate 하기 위해 사용
+- 각종 form에 대해서 유저가 input을 입력할 때마다 입력 값을 validation 하기 위해 사용
 - validate 실패 시 유저에게 적절한 Feedback을 제공하기 위해 사용
 
 ## React-Query
@@ -225,8 +225,36 @@ wanted-pre-onboarding-challenge-fe-1
 
 <br>
 
-# 과제 진행 시 주안점
+# 구현 시 고려한 점
+
+## 사용자 입장
+
+### Auth 관련
+- 한 번 로그인을 수행하여 JWT 토큰을 발급 받은 경우, 이를 브라우저의 Local Storage에 저장하여, 추후 접속 시 재 로그인 없이 바로 서비스를 사용할 수 있도록 구현
+- 페이지 접근 제한을 컴포넌트 내의 useEffect에서 진행하면, 페이지가 렌더된 이후 접근 권한을 체크하게 되므로, 페이지가 렌더되기 이전에 유저의 권한을 체크하기 위해 PrivateRoute, PublicRoute 구현
+
+### UX 관련
+- form에서 유저가 입력한 값에 대해 실시간으로 validation를 수행하고, 유저가 validation의 결과를 실시간으로 볼 수 있도록 구현
+- 유저가 특정 데이터를 CUD 한 경우, 서버로부터 자동으로 새로 데이터를 받아와 최신 데이터를 확인할 수 있도록 구현
+- 유저가 보낸 API 요청에 대한 결과를 Snackbar 형태로 제공
+- 유저가 발생시키고 있는 각종 Event에 대한 응답을 제공 (CSS 이용)
+- 라이트모드/다크모드를 구현하여 유저가 원하는 theme으로 사이트를 이용할 수 있도록 구현
+- 유저가 입력한 값이 UI의 크기를 벗어나지 않도록 overflow, ellipsis 처리
+
+## 개발자 입장
+
+### API 관련
+- Axios를 커스텀하여 유저 로그인 여부에 따라 HTTP Headers를 자동으로 설정하도록 구현
+- 앱에사 사용되는 각종 API의 Endpoint 주소를 따로 하나의 Constants 파일로 관리하여, Base URL 등을 한 번에 관리하기 편하도록 구현
+- React Query의 useMutation Hook을 이용하여 API 요청의 성공, 실패를 쉽게 관리할 수 있도록 구현
+
+### 컴포넌트 관련
+- 자주 사용되는 컴포넌트를 공통 컴포넌트로 분리
+- Container / Presenter 방식으로 컴포넌트의 관심사 분리
 
 <br>
 
 # 한계점 및 개선 사항
+
+
+
