@@ -56,7 +56,7 @@ wanted-pre-onboarding-challenge-fe-1
 │  └─ index.html
 ├─ README.md
 ├─ src
-│  ├─ api
+│  ├─ api                   // 백엔드 서버와 API 통신을 하기 위한 파일을 모아둔 폴더
 │  │  ├─ auth
 │  │  │  ├─ join.ts
 │  │  │  └─ login.ts
@@ -69,8 +69,8 @@ wanted-pre-onboarding-challenge-fe-1
 │  │     ├─ getTodos.ts
 │  │     └─ updateTodo.ts
 │  ├─ App.tsx
-│  ├─ components
-│  │  ├─ common
+│  ├─ components          // 화면을 구성하는 각종 Presenter Component를 모아둔 폴더
+│  │  ├─ common           // 공통적으로 사용되는 Component를 따로 구분해서 모아둔 폴더
 │  │  │  ├─ Button.tsx
 │  │  │  └─ SubmitInput.tsx
 │  │  ├─ header
@@ -83,10 +83,10 @@ wanted-pre-onboarding-challenge-fe-1
 │  │     ├─ TodoEditForm.tsx
 │  │     ├─ TodoList.tsx
 │  │     └─ TodoListItem.tsx
-│  ├─ constants
+│  ├─ constants            // 앱 내부에서 자주 사용되거나, 비슷한 형식을 띄는 문자열을 모아둔 폴더 
 │  │  ├─ apiUrls.ts
 │  │  └─ themeConstants.ts
-│  ├─ containers
+│  ├─ containers          // Redux store에서 가져온 전역 상태를 Presenter Component에 전달하는 역할을 하는 Container Component를 모아둔 폴더
 │  │  ├─ header
 │  │  │  └─ DarkmodeSwitchContainer.tsx
 │  │  └─ todo
@@ -94,8 +94,8 @@ wanted-pre-onboarding-challenge-fe-1
 │  │     ├─ TodoEditFormContainer.tsx
 │  │     ├─ TodoListContainer.tsx
 │  │     └─ TodoPageContainer.tsx
-│  ├─ hooks
-│  │  ├─ api
+│  ├─ hooks               // Component 에서 사용되는 각종 hook을 모아둔 폴더
+│  │  ├─ api              // API 관련 hook을 모아둔 폴더
 │  │  │  ├─ auth
 │  │  │  │  ├─ useJoinMutation.ts
 │  │  │  │  └─ useLoginMutation.ts
@@ -105,10 +105,10 @@ wanted-pre-onboarding-challenge-fe-1
 │  │  │     ├─ useGetTodoByIdQuery.ts
 │  │  │     ├─ useGetTodosQuery.ts
 │  │  │     └─ useUpdateTodoMutation.ts
-│  │  └─ common
+│  │  └─ common          // 일반적으로 사용되는 hook을 모아둔 폴더
 │  │     └─ useCustomSnackbar.ts
 │  ├─ index.tsx
-│  ├─ pages
+│  ├─ pages              // Route의 단위가 되는 페이지들을 모아둔 폴더
 │  │  ├─ auth
 │  │  │  ├─ authPageStyle.ts
 │  │  │  ├─ JoinPage.tsx
@@ -117,24 +117,24 @@ wanted-pre-onboarding-challenge-fe-1
 │  │  └─ todo
 │  │     └─ TodoPage.tsx
 │  ├─ Router.tsx
-│  ├─ routes
+│  ├─ routes              // 특정 페이지에 접속 가능한지 권한을 체크하는 CustomRoute를 모아둔 폴더
 │  │  ├─ MainRoute.tsx
 │  │  ├─ PrivateRoute.tsx
 │  │  └─ PublicRoute.tsx
-│  ├─ store
+│  ├─ store               // Redux를 이용한 전역 상태 관리를 구현하기 위해 필요한 코드를 모아둔 ㅎ폴더
 │  │  ├─ store.ts
 │  │  ├─ themeSlice.ts
 │  │  └─ todoSlice.ts
-│  ├─ styles
+│  ├─ styles              // 앱에서 사용되는 Style을 모아둔 폴더
 │  │  ├─ colors.ts
 │  │  ├─ GlobalStyles.ts
 │  │  ├─ styled.d.ts
 │  │  └─ themeStyles.ts
-│  ├─ types
+│  ├─ types               // 앱에서 사용되는 Type을 모아둔 폴더
 │  │  ├─ mutationTypes.ts
 │  │  ├─ themeTypes.ts
 │  │  └─ todoTypes.ts
-│  └─ utils
+│  └─ utils               // 반복적으로 사용되거나, 비슷한 맥락을 갖는 함수들을 모아둔 폴더
 │     ├─ checkUserLoggedIn.ts
 │     └─ validateForm.ts
 ├─ tsconfig.json
