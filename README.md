@@ -233,15 +233,15 @@ wanted-pre-onboarding-challenge-fe-1
 
 <br>
 
-# 구현 시 고려한 점
+# 🤔 구현 시 고려한 점
 
-## 사용자 입장
+## 😀 사용자 입장
 
-### Auth 관련
+### 🔑 Auth 관련
 - 한 번 로그인을 수행하여 JWT 토큰을 발급 받은 경우, 이를 브라우저의 Local Storage에 저장하여, 추후 접속 시 재 로그인 없이 바로 서비스를 사용할 수 있도록 구현
 - 페이지 접근 제한을 컴포넌트 내의 useEffect에서 진행하면, 페이지가 렌더된 이후 접근 권한을 체크하게 되므로, 페이지가 렌더되기 이전에 유저의 권한을 체크하기 위해 PrivateRoute, PublicRoute 구현
 
-### UX 관련
+### 🎨 UX 관련
 - form에서 유저가 입력한 값에 대해 실시간으로 validation를 수행하고, 유저가 validation의 결과를 실시간으로 볼 수 있도록 구현
 - 유저가 특정 데이터를 CUD 한 경우, 서버로부터 자동으로 새로 데이터를 받아와 최신 데이터를 확인할 수 있도록 구현
 - 유저가 보낸 API 요청에 대한 결과를 Snackbar 형태로 제공
@@ -249,20 +249,20 @@ wanted-pre-onboarding-challenge-fe-1
 - 라이트모드/다크모드를 구현하여 유저가 원하는 theme으로 사이트를 이용할 수 있도록 구현
 - 유저가 입력한 값이 UI의 크기를 벗어나지 않도록 overflow, ellipsis 처리
 
-## 개발자 입장
+## 💻 개발자 입장
 
-### API 관련
+### 📃 API 관련
 - Axios를 커스텀하여 유저 로그인 여부에 따라 HTTP Headers를 자동으로 설정하도록 구현
 - 앱에서 사용되는 각종 API의 Endpoint 주소를 따로 하나의 Constants 파일로 관리하여, Base URL 등을 한 번에 관리하기 편하도록 구현
 - React Query의 useMutation Hook을 이용하여 API 요청의 성공, 실패에 따른 처리를 쉽게 관리할 수 있도록 구현
 
-### 컴포넌트 관련
+### 🔷 컴포넌트 관련
 - 자주 사용되는 컴포넌트(Button 등)를 공통 컴포넌트로 분리
 - Container / Presenter 방식으로 컴포넌트의 관심사 분리
 
 <br>
 
-# 부족했던 점
+# 😥 부족했던 점
 
 ## Todo 상세 페이지를 구현 과정에서의 로직 검증 부족
 - 사용자가 선택한 Todo의 상세페이지를 구현하는 과정에서, 선택한 Todo의 id를 갖는 URL로 이동하는 방식으로 구현하지 않고, Redux를 이용해 사용자가 선택한 Todo의 정보를 `selectedTodo` 라는 전역 상태로 저장하여 보여주는 방식으로 구현하고 싶었다.
