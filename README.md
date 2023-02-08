@@ -1,4 +1,4 @@
-# 프로젝트 소개
+# 🗽 프로젝트 소개
 
 - 2023년 원티드 프리온보딩 프론트엔드 챌린지 1월에서 요구하는 `Todo 앱 만들기` 과제를 진행한 프로젝트입니다.
 - 원티드에서 제공하는 백엔드 서버를 바탕으로 React + Typescript로 프론트엔드를 구현하는 것이 목표입니다.
@@ -17,7 +17,7 @@
 
 <br>
 
-# 최종 구현 화면
+# 🎞 최종 구현 화면
 
 <table>
   <tr>
@@ -60,7 +60,7 @@
 
 <br>
 
-# 설치, 환경설정 및 실행 방법
+# 🛠 설치, 환경설정 및 실행 방법
 
 ## Frontend
 ```
@@ -78,7 +78,7 @@ yarn start
 
 <br>
 
-# 구현 요구 사항
+# 📋 구현 요구 사항
 
 ## Assignment 1 - Login / SignUp
 
@@ -114,7 +114,7 @@ yarn start
 
 <br>
 
-# 사용한 프레임워크 및 라이브러리
+# 🔧 사용한 프레임워크 및 라이브러리
 
 ## React-Route-Dom
 - React 앱 내부에서 Page Routing 을 위해 사용
@@ -136,7 +136,7 @@ yarn start
 
 <br>
 
-# 폴더 구조
+# 🗂 폴더 구조
 
 ```ts
 wanted-pre-onboarding-challenge-fe-1
